@@ -6,5 +6,10 @@ namespace ComputerGraphic
         {
             InitializeComponent();
         }
+
+        private void lab1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
