@@ -1,3 +1,5 @@
+using ComputerGraphic.View.Labs.Lab1;
+
 namespace ComputerGraphic
 {
     public partial class MainForm : Form
@@ -7,9 +9,10 @@ namespace ComputerGraphic
             InitializeComponent();
         }
 
-        private void lab1_Click(object sender, EventArgs e)
+        private void Lab1Button_Click(object sender, EventArgs e)
         {
-            
+            var lab = new Lab1();
+            lab.ShowDialog();
         }
     }
 }

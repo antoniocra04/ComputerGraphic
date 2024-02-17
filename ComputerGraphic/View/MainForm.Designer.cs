@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             MainTableLayoutPanel = new TableLayoutPanel();
+            CGLabel = new Label();
             RightLowerPanel = new Panel();
             LeftLowerPanel = new Panel();
             RightMiddlePanel = new Panel();
@@ -40,7 +41,6 @@
             Lab1Button = new Button();
             Lab3Button = new Button();
             Lab2Button = new Button();
-            CGLabel = new Label();
             label1 = new Label();
             MainTableLayoutPanel.SuspendLayout();
             ButtonPanel.SuspendLayout();
@@ -70,6 +70,18 @@
             MainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             MainTableLayoutPanel.Size = new Size(1084, 661);
             MainTableLayoutPanel.TabIndex = 2;
+            // 
+            // CGLabel
+            // 
+            CGLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            CGLabel.AutoSize = true;
+            CGLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            CGLabel.Location = new Point(364, 0);
+            CGLabel.Name = "CGLabel";
+            CGLabel.Size = new Size(355, 220);
+            CGLabel.TabIndex = 0;
+            CGLabel.Text = "Компьютерная графика";
+            CGLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // RightLowerPanel
             // 
@@ -159,6 +171,7 @@
             Lab1Button.TabIndex = 4;
             Lab1Button.Text = "Лаба 1";
             Lab1Button.UseVisualStyleBackColor = true;
+            Lab1Button.Click += Lab1Button_Click;
             // 
             // Lab3Button
             // 
@@ -181,18 +194,6 @@
             Lab2Button.TabIndex = 5;
             Lab2Button.Text = "Лаба 2";
             Lab2Button.UseVisualStyleBackColor = true;
-            // 
-            // CGLabel
-            // 
-            CGLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            CGLabel.AutoSize = true;
-            CGLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            CGLabel.Location = new Point(364, 0);
-            CGLabel.Name = "CGLabel";
-            CGLabel.Size = new Size(355, 220);
-            CGLabel.TabIndex = 0;
-            CGLabel.Text = "Компьютерная графика";
-            CGLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
