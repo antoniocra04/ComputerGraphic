@@ -48,6 +48,7 @@
             this.matrixTextbox.Name = "matrixTextbox";
             this.matrixTextbox.Size = new System.Drawing.Size(135, 23);
             this.matrixTextbox.TabIndex = 0;
+            this.matrixTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validationTextbox);
             this.matrixTextbox.Leave += new System.EventHandler(this.matrixTextbox_Leave);
             // 
             // nLabel
@@ -94,6 +95,7 @@
             this.xTextbox.Name = "xTextbox";
             this.xTextbox.Size = new System.Drawing.Size(40, 23);
             this.xTextbox.TabIndex = 7;
+            this.xTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validationTextbox);
             // 
             // yTextbox
             // 
@@ -101,6 +103,7 @@
             this.yTextbox.Name = "yTextbox";
             this.yTextbox.Size = new System.Drawing.Size(38, 23);
             this.yTextbox.TabIndex = 8;
+            this.yTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validationTextbox);
             // 
             // zTextbox
             // 
@@ -108,6 +111,7 @@
             this.zTextbox.Name = "zTextbox";
             this.zTextbox.Size = new System.Drawing.Size(37, 23);
             this.zTextbox.TabIndex = 9;
+            this.zTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validationTextbox);
             // 
             // xLabel
             // 

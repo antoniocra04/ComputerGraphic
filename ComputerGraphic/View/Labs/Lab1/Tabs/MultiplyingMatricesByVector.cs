@@ -37,6 +37,21 @@ namespace ComputerGraphic.View.Labs.Lab1.Tabs
                     MatrText[i, j].Text = "0";
         }
 
+        private void validationTextbox(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.') && e.KeyChar > -1)
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as System.Windows.Forms.TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void matrixButton_Click(object sender, EventArgs e)
         {
             // 1. Чтение размерности матрицы
@@ -133,8 +148,10 @@ namespace ComputerGraphic.View.Labs.Lab1.Tabs
                     MatrText[i, j].Size = new System.Drawing.Size(dx, dy);
                     // 3.5. Пока что спрятать ячейку
                     MatrText[i, j].Visible = false;
+                    MatrText[i, j].KeyPress += new KeyPressEventHandler(validationTextbox);
                     // 3.6. Добавить MatrText[i,j] в форму form2
                     inputMatrixForm.Controls.Add(MatrText[i, j]);
+                    
                 }
         }
     }
