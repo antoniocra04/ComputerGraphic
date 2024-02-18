@@ -294,6 +294,9 @@
         private Label XLabel;
         private Label YLabel;
         private Label ZLabel;
+        private Label XResultLabel;
+        private Label YResultLabel;
+        private Label ZResultLabel;
         private TextBox AXTextBox;
         private TextBox AYTextBox;
         private TextBox BXTextBox;
