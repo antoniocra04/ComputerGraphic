@@ -10,24 +10,14 @@ using System.Windows.Forms;
 
 namespace ComputerGraphic.View.Labs.Lab1
 {
-    public partial class Lab1 : Form
+    public partial class InputMatrixForm : Form
     {
-        public Lab1()
+        public InputMatrixForm()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MMVTab_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void multiplyingMatricesByVector1_Load(object sender, EventArgs e)
+        private void InputMatrixForm_Load(object sender, EventArgs e)
         {
 
         }
