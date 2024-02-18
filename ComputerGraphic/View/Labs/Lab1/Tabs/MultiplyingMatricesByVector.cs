@@ -106,7 +106,7 @@ namespace ComputerGraphic.View.Labs.Lab1.Tabs
         private void resultButton_Click(object sender, EventArgs e)
         {
             // 1.Проверка, введены ли данные в обеих матрицах
-            if (!((f1 == true))) return;
+            if (!(f1 == true) || xTextbox.Text == "" || yTextbox.Text == "" || zTextbox.Text == "") return;
             // 2. Вычисление произведения матриц. Результат в Matr3
             int[] array2 = { int.Parse(xTextbox.Text), int.Parse(yTextbox.Text), int.Parse(zTextbox.Text) };
             for (int i = 0; i < n; i++)
