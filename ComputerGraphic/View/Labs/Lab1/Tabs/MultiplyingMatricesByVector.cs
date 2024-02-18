@@ -100,9 +100,11 @@ namespace ComputerGraphic.View.Labs.Lab1.Tabs
                     Matr3[i] += Matr1[j, i] * array2[j];
                 }
 
-            for(int i = 0; i < n; ++i)
+            resultLabel.Text = "";
+            for (int i = 0; i < n; ++i)
             {
                 resultLabel.Text += Matr3[i].ToString() + "\n";
+                Matr3[i] = 0;
             }
         }
 
