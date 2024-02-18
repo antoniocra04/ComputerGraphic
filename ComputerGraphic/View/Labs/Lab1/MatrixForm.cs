@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ComputerGraphic.View.Labs.Lab1
 {
-    public partial class Lab1 : Form
+    public partial class MatrixForm : Form
     {
-        public Lab1()
+        public MatrixForm()
         {
             InitializeComponent();
-        }
-
-        private void vectorProductOfVectors1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
