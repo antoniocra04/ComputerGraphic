@@ -21,5 +21,10 @@ namespace ComputerGraphic.View.Labs.Lab1
         {
 
         }
+
+        private void sm1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

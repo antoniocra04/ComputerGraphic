@@ -14,7 +14,7 @@ namespace ComputerGraphic.View.Labs.Lab1.Tabs
 {
     public partial class MatrixByAConstant : UserControl
     {
-        const int maxN = 5; //максимальная размерность матрицы
+        const int maxN = 4; //максимальная размерность матрицы
         int n = 3; //базовая размерность матрицы
         int Const = 1; //базовое значение константы
         TextBox[,] matrixText = null; //
@@ -36,6 +36,7 @@ namespace ComputerGraphic.View.Labs.Lab1.Tabs
         private void MatrixByAConstant_Load(object sender, EventArgs e)
         {
             nTextBox.Text = "";
+            constTextBox.Text = "";
             flag1 = false;
             flag2 = false;
             //
@@ -104,7 +105,7 @@ namespace ComputerGraphic.View.Labs.Lab1.Tabs
         private void nTextBox_Leave(object sender, EventArgs e)
         {
             /*int newN;
-            newN = Int16.Parse(nTextBox.Text);
+            newN = int.Parse(nTextBox.Text);
             if (newN != n)
             {
                 flag1 = false;

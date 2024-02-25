@@ -34,9 +34,11 @@
             MBACTab = new TabPage();
             matrixByaConstant1 = new Tabs.MatrixByAConstant();
             SMTab = new TabPage();
+            sm1 = new Tabs.SM();
             VPOVTab.SuspendLayout();
             MainTabControl.SuspendLayout();
             MBACTab.SuspendLayout();
+            SMTab.SuspendLayout();
             SuspendLayout();
             // 
             // VPOVTab
@@ -93,12 +95,20 @@
             // 
             // SMTab
             // 
+            SMTab.Controls.Add(sm1);
             SMTab.Location = new Point(4, 24);
             SMTab.Name = "SMTab";
             SMTab.Size = new Size(603, 604);
             SMTab.TabIndex = 2;
-            SMTab.Text = "tabPage2";
+            SMTab.Text = "Скалярное произведение векторов";
             SMTab.UseVisualStyleBackColor = true;
+            // 
+            // sm1
+            // 
+            sm1.Location = new Point(-58, 0);
+            sm1.Name = "sm1";
+            sm1.Size = new Size(856, 620);
+            sm1.TabIndex = 0;
             // 
             // Lab1
             // 
@@ -114,6 +124,7 @@
             VPOVTab.ResumeLayout(false);
             MainTabControl.ResumeLayout(false);
             MBACTab.ResumeLayout(false);
+            SMTab.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -125,5 +136,6 @@
         private TabPage MBACTab;
         private TabPage SMTab;
         private Tabs.MatrixByAConstant matrixByaConstant1;
+        private Tabs.SM sm1;
     }
 }
