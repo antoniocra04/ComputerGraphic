@@ -17,7 +17,18 @@ namespace ComputerGraphic.View.Labs.Lab1
             InitializeComponent();
         }
 
+        private void vectorProductOfVectors1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void sm1_Load(object sender, EventArgs e)
         {
 
         }

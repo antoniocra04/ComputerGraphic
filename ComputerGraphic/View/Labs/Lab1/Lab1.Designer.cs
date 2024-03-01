@@ -28,15 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             this.VPOVTab = new System.Windows.Forms.TabPage();
             this.vectorProductOfVectors1 = new ComputerGraphic.View.Labs.Lab1.Tabs.VectorProductOfVectors();
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.MMVTab = new System.Windows.Forms.TabPage();
+            this.MBACTab = new System.Windows.Forms.TabPage();
+            this.matrixByaConstant1 = new ComputerGraphic.View.Labs.Lab1.Tabs.MatrixByAConstant();
             this.multiplyingMatricesByVector1 = new ComputerGraphic.View.Labs.Lab1.Tabs.MultiplyingMatricesByVector();
+            this.SMTab = new System.Windows.Forms.TabPage();
+            this.sm1 = new ComputerGraphic.View.Labs.Lab1.Tabs.SM();
             this.VPOVTab.SuspendLayout();
             this.MainTabControl.SuspendLayout();
             this.MMVTab.SuspendLayout();
-            this.SuspendLayout();
+            this.MBACTab.SuspendLayout();
+            this.SMTab.SuspendLayout();
+
             // 
             // VPOVTab
             // 
@@ -58,10 +65,74 @@
             this.vectorProductOfVectors1.Name = "vectorProductOfVectors1";
             this.vectorProductOfVectors1.Size = new System.Drawing.Size(597, 598);
             this.vectorProductOfVectors1.TabIndex = 0;
+
             // 
             // MainTabControl
             // 
-            this.MainTabControl.Controls.Add(this.VPOVTab);
+
+            MainTabControl.Controls.Add(VPOVTab);
+            MainTabControl.Controls.Add(MBACTab);
+            MainTabControl.Controls.Add(SMTab);
+            MainTabControl.Dock = DockStyle.Fill;
+            MainTabControl.Location = new Point(0, 0);
+            MainTabControl.Name = "MainTabControl";
+            MainTabControl.SelectedIndex = 0;
+            MainTabControl.Size = new Size(611, 632);
+            MainTabControl.TabIndex = 0;
+            // 
+            // MBACTab
+            // 
+            MBACTab.Controls.Add(matrixByaConstant1);
+            MBACTab.Location = new Point(4, 24);
+            MBACTab.Name = "MBACTab";
+            MBACTab.Size = new Size(603, 604);
+            MBACTab.TabIndex = 1;
+            MBACTab.Text = "Матрица на константу";
+            MBACTab.UseVisualStyleBackColor = true;
+            // 
+            // matrixByaConstant1
+            // 
+            matrixByaConstant1.CausesValidation = false;
+            matrixByaConstant1.Location = new Point(0, 3);
+            matrixByaConstant1.Name = "matrixByaConstant1";
+            matrixByaConstant1.Size = new Size(603, 401);
+            matrixByaConstant1.TabIndex = 0;
+            // 
+            // SMTab
+            // 
+            SMTab.Controls.Add(sm1);
+            SMTab.Location = new Point(4, 24);
+            SMTab.Name = "SMTab";
+            SMTab.Size = new Size(603, 604);
+            SMTab.TabIndex = 2;
+            SMTab.Text = "Скалярное произведение векторов";
+            SMTab.UseVisualStyleBackColor = true;
+            // 
+            // sm1
+            // 
+            sm1.Location = new Point(-58, 0);
+            sm1.Name = "sm1";
+            sm1.Size = new Size(856, 620);
+            sm1.TabIndex = 0;
+            // 
+            // Lab1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(611, 632);
+            Controls.Add(MainTabControl);
+            MaximizeBox = false;
+            MaximumSize = new Size(1031, 1071);
+            MinimumSize = new Size(527, 567);
+            Name = "Lab1";
+            Text = "Lab1";
+            VPOVTab.ResumeLayout(false);
+            MainTabControl.ResumeLayout(false);
+            this.MMVTab.ResumeLayout(false);
+            MBACTab.ResumeLayout(false);
+            SMTab.ResumeLayout(false);
+            ResumeLayout(false);
+
             this.MainTabControl.Controls.Add(this.MMVTab);
             this.MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTabControl.Location = new System.Drawing.Point(0, 0);
@@ -89,23 +160,6 @@
             this.multiplyingMatricesByVector1.Size = new System.Drawing.Size(603, 604);
             this.multiplyingMatricesByVector1.TabIndex = 0;
             this.multiplyingMatricesByVector1.Load += new System.EventHandler(this.multiplyingMatricesByVector1_Load);
-            // 
-            // Lab1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 632);
-            this.Controls.Add(this.MainTabControl);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1031, 1071);
-            this.MinimumSize = new System.Drawing.Size(527, 567);
-            this.Name = "Lab1";
-            this.Text = "Lab1";
-            this.VPOVTab.ResumeLayout(false);
-            this.MainTabControl.ResumeLayout(false);
-            this.MMVTab.ResumeLayout(false);
-            this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -113,6 +167,10 @@
         private TabPage VPOVTab;
         private Tabs.VectorProductOfVectors vectorProductOfVectors1;
         private TabControl MainTabControl;
+        private TabPage MBACTab;
+        private TabPage SMTab;
+        private Tabs.MatrixByAConstant matrixByaConstant1;
+        private Tabs.SM sm1;
         private TabPage MMVTab;
         private Tabs.MultiplyingMatricesByVector multiplyingMatricesByVector1;
     }
