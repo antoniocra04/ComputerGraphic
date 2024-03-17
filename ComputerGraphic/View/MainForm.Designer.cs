@@ -187,13 +187,13 @@
             // Lab2Button
             // 
             Lab2Button.Dock = DockStyle.Fill;
-            Lab2Button.Enabled = false;
             Lab2Button.Location = new Point(3, 56);
             Lab2Button.Name = "Lab2Button";
             Lab2Button.Size = new Size(349, 47);
             Lab2Button.TabIndex = 5;
             Lab2Button.Text = "Лаба 2";
             Lab2Button.UseVisualStyleBackColor = true;
+            Lab2Button.Click += Lab2Button_Click;
             // 
             // label1
             // 
