@@ -33,8 +33,11 @@
             cohenSutherlandAlgorithmTab1 = new Tabs.CohenSutherlandAlgorithmTab();
             CSATabControl = new TabControl();
             CSATabPage = new TabPage();
+            BrezTab = new TabPage();
+            userControl11 = new Tabs.UserControl1();
             CSATabControl.SuspendLayout();
             CSATabPage.SuspendLayout();
+            BrezTab.SuspendLayout();
             SuspendLayout();
             // 
             // cohenSutherlandAlgorithmTab1
@@ -48,11 +51,12 @@
             // CSATabControl
             // 
             CSATabControl.Controls.Add(CSATabPage);
+            CSATabControl.Controls.Add(BrezTab);
             CSATabControl.Dock = DockStyle.Fill;
             CSATabControl.Location = new Point(0, 0);
             CSATabControl.Name = "CSATabControl";
             CSATabControl.SelectedIndex = 0;
-            CSATabControl.Size = new Size(871, 441);
+            CSATabControl.Size = new Size(770, 466);
             CSATabControl.TabIndex = 1;
             // 
             // CSATabPage
@@ -66,17 +70,36 @@
             CSATabPage.Text = "Алгоритм Коэна-Сазерленда";
             CSATabPage.UseVisualStyleBackColor = true;
             // 
+            // BrezTab
+            // 
+            BrezTab.Controls.Add(userControl11);
+            BrezTab.Location = new Point(4, 24);
+            BrezTab.Name = "BrezTab";
+            BrezTab.Size = new Size(762, 438);
+            BrezTab.TabIndex = 1;
+            BrezTab.Text = "Алгоритм Брезенхема";
+            BrezTab.UseVisualStyleBackColor = true;
+            // 
+            // userControl11
+            // 
+            userControl11.Location = new Point(0, 3);
+            userControl11.Name = "userControl11";
+            userControl11.Size = new Size(760, 434);
+            userControl11.TabIndex = 0;
+            // 
             // Lab2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(871, 441);
+            ClientSize = new Size(770, 466);
             Controls.Add(CSATabControl);
             MinimumSize = new Size(754, 395);
             Name = "Lab2";
             Text = "Лабораторная работа 2";
+            Load += Lab2_Load;
             CSATabControl.ResumeLayout(false);
             CSATabPage.ResumeLayout(false);
+            BrezTab.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -86,5 +109,7 @@
         private Tabs.CohenSutherlandAlgorithmTab cohenSutherlandAlgorithmTab1;
         private TabControl CSATabControl;
         private TabPage CSATabPage;
+        private TabPage BrezTab;
+        private Tabs.UserControl1 userControl11;
     }
 }
