@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace GeneralLabs.View.Labs
+﻿namespace GeneralLabs.View.Labs
 {
     public partial class Lab2 : Form
     {
