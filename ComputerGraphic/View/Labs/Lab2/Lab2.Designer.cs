@@ -56,7 +56,7 @@
             CSATabControl.Location = new Point(0, 0);
             CSATabControl.Name = "CSATabControl";
             CSATabControl.SelectedIndex = 0;
-            CSATabControl.Size = new Size(871, 441);
+            CSATabControl.Size = new Size(770, 466);
             CSATabControl.TabIndex = 1;
             // 
             // CSATabPage
@@ -96,11 +96,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(871, 441);
+            ClientSize = new Size(770, 466);
             Controls.Add(CSATabControl);
             MinimumSize = new Size(754, 395);
             Name = "Lab2";
             Text = "Лабораторная работа 2";
+            Load += Lab2_Load;
             CSATabControl.ResumeLayout(false);
             CSATabPage.ResumeLayout(false);
             PCATabPage.ResumeLayout(false);

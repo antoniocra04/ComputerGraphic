@@ -9,5 +9,10 @@ namespace ComputerGraphic.View.Labs.Lab2
         {
             InitializeComponent();
         }
+
+        private void Lab2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
