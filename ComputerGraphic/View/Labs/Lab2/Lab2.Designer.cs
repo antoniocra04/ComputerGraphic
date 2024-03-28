@@ -33,11 +33,11 @@
             cohenSutherlandAlgorithmTab1 = new Tabs.CohenSutherlandAlgorithmTab();
             CSATabControl = new TabControl();
             CSATabPage = new TabPage();
-            BrezTab = new TabPage();
-            userControl11 = new Tabs.UserControl1();
+            PCATabPage = new TabPage();
+            polygonColoringAlgorithm1 = new Tabs.PolygonColoringAlgorithm();
             CSATabControl.SuspendLayout();
             CSATabPage.SuspendLayout();
-            BrezTab.SuspendLayout();
+            PCATabPage.SuspendLayout();
             SuspendLayout();
             // 
             // cohenSutherlandAlgorithmTab1
@@ -51,7 +51,7 @@
             // CSATabControl
             // 
             CSATabControl.Controls.Add(CSATabPage);
-            CSATabControl.Controls.Add(BrezTab);
+            CSATabControl.Controls.Add(PCATabPage);
             CSATabControl.Dock = DockStyle.Fill;
             CSATabControl.Location = new Point(0, 0);
             CSATabControl.Name = "CSATabControl";
@@ -70,22 +70,27 @@
             CSATabPage.Text = "Алгоритм Коэна-Сазерленда";
             CSATabPage.UseVisualStyleBackColor = true;
             // 
-            // BrezTab
+            // PCATabPage
             // 
-            BrezTab.Controls.Add(userControl11);
-            BrezTab.Location = new Point(4, 24);
-            BrezTab.Name = "BrezTab";
-            BrezTab.Size = new Size(762, 438);
-            BrezTab.TabIndex = 1;
-            BrezTab.Text = "Алгоритм Брезенхема";
-            BrezTab.UseVisualStyleBackColor = true;
+            PCATabPage.Controls.Add(polygonColoringAlgorithm1);
+            PCATabPage.Location = new Point(4, 24);
+            PCATabPage.Name = "PCATabPage";
+            PCATabPage.Padding = new Padding(3);
+            PCATabPage.Size = new Size(863, 413);
+            PCATabPage.TabIndex = 1;
+            PCATabPage.Text = "Алгоритм закраски многоугольника";
+            PCATabPage.UseVisualStyleBackColor = true;
             // 
-            // userControl11
+            // polygonColoringAlgorithm1
             // 
-            userControl11.Location = new Point(0, 3);
-            userControl11.Name = "userControl11";
-            userControl11.Size = new Size(760, 434);
-            userControl11.TabIndex = 0;
+            polygonColoringAlgorithm1.BrushSize = 2;
+            polygonColoringAlgorithm1.BorderColor = Color.Black;
+            polygonColoringAlgorithm1.Dock = DockStyle.Fill;
+            polygonColoringAlgorithm1.FillColor = Color.Green;
+            polygonColoringAlgorithm1.Location = new Point(3, 3);
+            polygonColoringAlgorithm1.Name = "polygonColoringAlgorithm1";
+            polygonColoringAlgorithm1.Size = new Size(857, 407);
+            polygonColoringAlgorithm1.TabIndex = 0;
             // 
             // Lab2
             // 
@@ -99,7 +104,7 @@
             Load += Lab2_Load;
             CSATabControl.ResumeLayout(false);
             CSATabPage.ResumeLayout(false);
-            BrezTab.ResumeLayout(false);
+            PCATabPage.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -109,7 +114,7 @@
         private Tabs.CohenSutherlandAlgorithmTab cohenSutherlandAlgorithmTab1;
         private TabControl CSATabControl;
         private TabPage CSATabPage;
-        private TabPage BrezTab;
-        private Tabs.UserControl1 userControl11;
+        private TabPage PCATabPage;
+        private Tabs.PolygonColoringAlgorithm polygonColoringAlgorithm1;
     }
 }
