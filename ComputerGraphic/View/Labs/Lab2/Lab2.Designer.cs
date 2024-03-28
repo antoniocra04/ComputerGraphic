@@ -33,8 +33,11 @@
             cohenSutherlandAlgorithmTab1 = new Tabs.CohenSutherlandAlgorithmTab();
             CSATabControl = new TabControl();
             CSATabPage = new TabPage();
+            PCATabPage = new TabPage();
+            polygonColoringAlgorithm1 = new Tabs.PolygonColoringAlgorithm();
             CSATabControl.SuspendLayout();
             CSATabPage.SuspendLayout();
+            PCATabPage.SuspendLayout();
             SuspendLayout();
             // 
             // cohenSutherlandAlgorithmTab1
@@ -48,6 +51,7 @@
             // CSATabControl
             // 
             CSATabControl.Controls.Add(CSATabPage);
+            CSATabControl.Controls.Add(PCATabPage);
             CSATabControl.Dock = DockStyle.Fill;
             CSATabControl.Location = new Point(0, 0);
             CSATabControl.Name = "CSATabControl";
@@ -66,6 +70,28 @@
             CSATabPage.Text = "Алгоритм Коэна-Сазерленда";
             CSATabPage.UseVisualStyleBackColor = true;
             // 
+            // PCATabPage
+            // 
+            PCATabPage.Controls.Add(polygonColoringAlgorithm1);
+            PCATabPage.Location = new Point(4, 24);
+            PCATabPage.Name = "PCATabPage";
+            PCATabPage.Padding = new Padding(3);
+            PCATabPage.Size = new Size(863, 413);
+            PCATabPage.TabIndex = 1;
+            PCATabPage.Text = "Алгоритм закраски многоугольника";
+            PCATabPage.UseVisualStyleBackColor = true;
+            // 
+            // polygonColoringAlgorithm1
+            // 
+            polygonColoringAlgorithm1.BrushSize = 2;
+            polygonColoringAlgorithm1.BorderColor = Color.Black;
+            polygonColoringAlgorithm1.Dock = DockStyle.Fill;
+            polygonColoringAlgorithm1.FillColor = Color.Green;
+            polygonColoringAlgorithm1.Location = new Point(3, 3);
+            polygonColoringAlgorithm1.Name = "polygonColoringAlgorithm1";
+            polygonColoringAlgorithm1.Size = new Size(857, 407);
+            polygonColoringAlgorithm1.TabIndex = 0;
+            // 
             // Lab2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -77,6 +103,7 @@
             Text = "Лабораторная работа 2";
             CSATabControl.ResumeLayout(false);
             CSATabPage.ResumeLayout(false);
+            PCATabPage.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -86,5 +113,7 @@
         private Tabs.CohenSutherlandAlgorithmTab cohenSutherlandAlgorithmTab1;
         private TabControl CSATabControl;
         private TabPage CSATabPage;
+        private TabPage PCATabPage;
+        private Tabs.PolygonColoringAlgorithm polygonColoringAlgorithm1;
     }
 }
