@@ -32,12 +32,15 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
+            Lab3Button = new Button();
+            Lab4Button = new Button();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // Lab2Button
             // 
+            Lab2Button.Dock = DockStyle.Fill;
             Lab2Button.Location = new Point(3, 134);
             Lab2Button.Name = "Lab2Button";
             Lab2Button.Size = new Size(491, 59);
@@ -50,8 +53,10 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(Lab4Button, 0, 3);
             tableLayoutPanel1.Controls.Add(Lab2Button, 0, 1);
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(Lab3Button, 0, 2);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -83,6 +88,29 @@
             label1.Text = "Выберите лабораторную:";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // Lab3Button
+            // 
+            Lab3Button.Dock = DockStyle.Fill;
+            Lab3Button.Location = new Point(3, 199);
+            Lab3Button.Name = "Lab3Button";
+            Lab3Button.Size = new Size(491, 59);
+            Lab3Button.TabIndex = 2;
+            Lab3Button.Text = "Lab 3";
+            Lab3Button.UseVisualStyleBackColor = true;
+            Lab3Button.Click += Lab3Button_Click;
+            // 
+            // Lab4Button
+            // 
+            Lab4Button.Dock = DockStyle.Fill;
+            Lab4Button.Enabled = false;
+            Lab4Button.Location = new Point(3, 264);
+            Lab4Button.Name = "Lab4Button";
+            Lab4Button.Size = new Size(491, 61);
+            Lab4Button.TabIndex = 3;
+            Lab4Button.Text = "Lab 4";
+            Lab4Button.UseVisualStyleBackColor = true;
+            Lab4Button.Click += Lab4Button_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -103,5 +131,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
         private Label label1;
+        private Button Lab3Button;
+        private Button Lab4Button;
     }
 }
