@@ -176,13 +176,13 @@
             // Lab3Button
             // 
             Lab3Button.Dock = DockStyle.Fill;
-            Lab3Button.Enabled = false;
             Lab3Button.Location = new Point(3, 109);
             Lab3Button.Name = "Lab3Button";
             Lab3Button.Size = new Size(349, 47);
             Lab3Button.TabIndex = 6;
             Lab3Button.Text = "Лаба 3";
             Lab3Button.UseVisualStyleBackColor = true;
+            Lab3Button.Click += Lab3Button_Click;
             // 
             // Lab2Button
             // 
