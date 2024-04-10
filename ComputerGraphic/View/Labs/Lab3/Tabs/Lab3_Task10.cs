@@ -27,8 +27,8 @@ namespace ComputerGraphic.View.Labs.Lab3.Tabs
             get
             {
                 var matrix = new TransformMatrix();
-                matrix.M = Width / 2 + AxisRadius * Math.Cos(RocketFi);
-                matrix.N = Height / 2 + AxisRadius * Math.Sin(RocketFi);
+                matrix.M = Width / 2 + AxisRocketRadius * Math.Cos(RocketFi);
+                matrix.N = Height / 2 + AxisRocketRadius * Math.Sin(RocketFi);
                 return matrix;
             }
         }
@@ -85,8 +85,8 @@ namespace ComputerGraphic.View.Labs.Lab3.Tabs
             get
             {
                 var matrix = new TransformMatrix();
-                matrix.M = Width / 2 + AxisRadius * Math.Cos(UFOFi);
-                matrix.N = Height / 2 + AxisRadius * Math.Sin(UFOFi);
+                matrix.M = Width / 2 + AxisUFORadius * Math.Cos(UFOFi);
+                matrix.N = Height / 2 + AxisUFORadius * Math.Sin(UFOFi);
                 return matrix;
             }
         }
@@ -156,7 +156,7 @@ namespace ComputerGraphic.View.Labs.Lab3.Tabs
             }
         }
 
-        int AxisRadius
+        int AxisRocketRadius
         {
             get
             {
@@ -164,13 +164,11 @@ namespace ComputerGraphic.View.Labs.Lab3.Tabs
             }
         }
 
-        int Interval
+        int AxisUFORadius
         {
-            get => _interval;
-            set
+            get
             {
-                _interval = value;
-                Timer.Interval = value;
+                return Height > Width ? (int)(Width * 0.4) : (int)(Height * 0.4);
             }
         }
 
@@ -181,7 +179,6 @@ namespace ComputerGraphic.View.Labs.Lab3.Tabs
         public Lab3_Task10()
         {
             InitializeComponent();
-            Interval = 50;
         }
 
         public static void DrawCircle(Graphics g, Pen pen,

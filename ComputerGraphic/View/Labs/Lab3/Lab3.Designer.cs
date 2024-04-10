@@ -31,9 +31,11 @@
             lab3_Task10 = new Tabs.Lab3_Task10();
             TabControl = new TabControl();
             Task10 = new TabPage();
-            tabPage2 = new TabPage();
+            Task14 = new TabPage();
+            lab3_Task141 = new Tabs.Lab3_Task14();
             TabControl.SuspendLayout();
             Task10.SuspendLayout();
+            Task14.SuspendLayout();
             SuspendLayout();
             // 
             // lab3_Task10
@@ -41,18 +43,18 @@
             lab3_Task10.Dock = DockStyle.Fill;
             lab3_Task10.Location = new Point(3, 3);
             lab3_Task10.Name = "lab3_Task10";
-            lab3_Task10.Size = new Size(786, 416);
+            lab3_Task10.Size = new Size(898, 520);
             lab3_Task10.TabIndex = 0;
             // 
             // TabControl
             // 
             TabControl.Controls.Add(Task10);
-            TabControl.Controls.Add(tabPage2);
+            TabControl.Controls.Add(Task14);
             TabControl.Dock = DockStyle.Fill;
             TabControl.Location = new Point(0, 0);
             TabControl.Name = "TabControl";
             TabControl.SelectedIndex = 0;
-            TabControl.Size = new Size(800, 450);
+            TabControl.Size = new Size(912, 554);
             TabControl.TabIndex = 1;
             // 
             // Task10
@@ -61,31 +63,41 @@
             Task10.Location = new Point(4, 24);
             Task10.Name = "Task10";
             Task10.Padding = new Padding(3);
-            Task10.Size = new Size(792, 422);
+            Task10.Size = new Size(904, 526);
             Task10.TabIndex = 0;
             Task10.Text = "Задание 10";
             Task10.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // Task14
             // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(192, 72);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            Task14.Controls.Add(lab3_Task141);
+            Task14.Location = new Point(4, 24);
+            Task14.Name = "Task14";
+            Task14.Padding = new Padding(3);
+            Task14.Size = new Size(904, 526);
+            Task14.TabIndex = 1;
+            Task14.Text = "Задание 14";
+            Task14.UseVisualStyleBackColor = true;
+            // 
+            // lab3_Task141
+            // 
+            lab3_Task141.Dock = DockStyle.Fill;
+            lab3_Task141.Location = new Point(3, 3);
+            lab3_Task141.Name = "lab3_Task141";
+            lab3_Task141.Size = new Size(898, 520);
+            lab3_Task141.TabIndex = 0;
             // 
             // Lab3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(912, 554);
             Controls.Add(TabControl);
             Name = "Lab3";
             Text = "Lab3";
             TabControl.ResumeLayout(false);
             Task10.ResumeLayout(false);
+            Task14.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -94,6 +106,7 @@
         private Tabs.Lab3_Task10 lab3_Task10;
         private TabControl TabControl;
         private TabPage Task10;
-        private TabPage tabPage2;
+        private TabPage Task14;
+        private Tabs.Lab3_Task14 lab3_Task141;
     }
 }
