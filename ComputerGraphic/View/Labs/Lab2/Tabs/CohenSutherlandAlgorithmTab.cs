@@ -16,7 +16,7 @@ namespace ComputerGraphic.View.Labs.Lab2.Tabs
         private Bitmap Bitmap { get; set; }
         private Stack<bool> ResizingStack { get; set; } = new Stack<bool>();
 
-        private bool IsAnimationMode { get; set; } = false;
+        private bool IsAnimationMode { get; set; } = true;
 
         private int DelayTime { get; set; } = 250;
 

@@ -16,5 +16,15 @@ namespace ComputerGraphic.View.Labs.Lab3
         {
             InitializeComponent();
         }
+
+        private void lab3_Task131_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _131_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
