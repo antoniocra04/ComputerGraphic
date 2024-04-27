@@ -28,12 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Lab4";
+            components = new System.ComponentModel.Container();
+            PictureBox = new PictureBox();
+            Timer = new System.Windows.Forms.Timer(components);
+            ((System.ComponentModel.ISupportInitialize)PictureBox).BeginInit();
+            SuspendLayout();
+            // 
+            // PictureBox
+            // 
+            PictureBox.Dock = DockStyle.Fill;
+            PictureBox.Location = new Point(0, 0);
+            PictureBox.Name = "PictureBox";
+            PictureBox.Size = new Size(800, 450);
+            PictureBox.TabIndex = 0;
+            PictureBox.TabStop = false;
+            // 
+            // Timer
+            // 
+            Timer.Tick += Timer_Tick;
+            // 
+            // Lab4
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(PictureBox);
+            Name = "Lab4";
+            Text = "Lab4";
+            Load += Lab4_Load;
+            Resize += Lab4_Resize;
+            ((System.ComponentModel.ISupportInitialize)PictureBox).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private PictureBox PictureBox;
+        private System.Windows.Forms.Timer Timer;
     }
 }

@@ -89,12 +89,11 @@
             for (var i = 0; i < 4; i++)
             {
                 var temp = 0f;
-                for (var col = 0; col < 4; col++)
+                for (var j = 0; j < 4; j++)
                 {
-                    for (var row = 0; row < 4; row++)
-                    {
-                        temp += this[col] * matrix[row, col];
-                    }
+                    var a = this[j];
+                    var b = matrix[j, i];
+                    temp += a * b;
                 }
                 point[i] = temp;
             }
