@@ -5,6 +5,16 @@ namespace GeneralLabs.View.Labs
 {
     public partial class Lab4 : Form
     {
+        private float xLocation = 0;
+        private float yLocation = 0;
+        private float zLocation = 0;
+        private float xRotation = 20;
+        private float yRotation = 20;
+        private float zRotation = 0;
+        private float xScale = 1;
+        private float yScale = 1;
+        private float zScale = 1;
+
         Bitmap Bitmap { get; set; }
         new int Width => PictureBox.Width;
         new int Height => PictureBox.Height;
@@ -34,41 +44,32 @@ namespace GeneralLabs.View.Labs
             }
         }
 
-        TransformMatrix RotateXMatrix
+        TransformMatrix XOYDisplayMatrix
         {
             get
             {
                 var matrix = new TransformMatrix();
-                matrix.E = (float)Math.Cos(Fi);
-                matrix.F = (float)Math.Sin(Fi);
-                matrix.H = (float)-Math.Sin(Fi);
-                matrix.I = (float)Math.Cos(Fi);
+                matrix.I = -1;
                 return matrix;
             }
         }
 
-        TransformMatrix RotateYMatrix
+        TransformMatrix YOZDisplayMatrix
         {
             get
             {
                 var matrix = new TransformMatrix();
-                matrix.A = (float)Math.Cos(Fi);
-                matrix.C = (float)-Math.Sin(Fi);
-                matrix.G = (float)Math.Sin(Fi);
-                matrix.I = (float)Math.Cos(Fi);
+                matrix.A = -1;
                 return matrix;
             }
         }
 
-        TransformMatrix RotateZMatrix
+        TransformMatrix XOZDisplayMatrix
         {
             get
             {
                 var matrix = new TransformMatrix();
-                matrix.A = (float)Math.Cos(Fi);
-                matrix.B = (float)Math.Sin(Fi);
-                matrix.D = (float)-Math.Sin(Fi);
-                matrix.E = (float)Math.Cos(Fi);
+                matrix.E = -1;
                 return matrix;
             }
         }
@@ -91,12 +92,97 @@ namespace GeneralLabs.View.Labs
 
         int fi { get; set; } = 0;
 
-        double Fi => (double)(fi / 180f * Math.PI);
+        float Fi => fi / 180f * MathF.PI;
 
         Cube Cube { get; set; } = new Cube();
 
         int Interval { get; set; } = 50;
 
+        bool XOYDisplay { get; set; } = false;
+        bool YOZDisplay { get; set; } = false;
+        bool XOZDisplay { get; set; } = false;
+
+        float XLocation
+        {
+            get => xLocation;
+            set
+            {
+                xLocation = value;
+                XLocationTextBox.Text = XLocation.ToString();
+            }
+        }
+        float YLocation
+        {
+            get => yLocation;
+            set
+            {
+                yLocation = value;
+                YLocationTextBox.Text = YLocation.ToString();
+            }
+        }
+        float ZLocation
+        {
+            get => zLocation;
+            set
+            {
+                zLocation = value;
+                ZLocationTextBox.Text = ZLocation.ToString();
+            }
+        }
+        float XRotation
+        {
+            get => xRotation;
+            set
+            {
+                xRotation = value;
+                XRotationTextBox.Text = XRotation.ToString();
+            }
+        }
+        float YRotation
+        {
+            get => yRotation;
+            set
+            {
+                yRotation = value;
+                YRotationTextBox.Text = YRotation.ToString();
+            }
+        }
+        float ZRotation
+        {
+            get => zRotation;
+            set
+            {
+                zRotation = value;
+                ZRotationTextBox.Text = ZRotation.ToString();
+            }
+        }
+        float XScale
+        {
+            get => xScale;
+            set
+            {
+                xScale = value;
+                XScaleTextBox.Text = XScale.ToString();
+            }
+        }
+        float YScale
+        {
+            get => yScale;
+            set
+            {
+                yScale = value;
+                YScaleTextBox.Text = YScale.ToString();
+            }
+        }
+        float ZScale
+        {
+            get => zScale;
+            set
+            {
+                zScale = value;
+                ZScaleTextBox.Text = ZScale.ToString();
+            }
+        }
         public Lab4()
         {
             InitializeComponent();
@@ -111,12 +197,78 @@ namespace GeneralLabs.View.Labs
             return matrix;
         }
 
+        TransformMatrix GetScaleMatrix(float x, float y, float z)
+        {
+            var matrix = new TransformMatrix();
+            matrix.A = x;
+            matrix.E = y;
+            matrix.I = z;
+            return matrix;
+        }
+
+        TransformMatrix GetLocationMatrix(float x, float y, float z)
+        {
+            var matrix = new TransformMatrix();
+            matrix.L = x;
+            matrix.M = y;
+            matrix.N = z;
+            return matrix;
+        }
+
+        TransformMatrix GetRotateXMatrix(float fi)
+        {
+            var rad = fi / 180 * MathF.PI;
+            var matrix = new TransformMatrix();
+            matrix.E = MathF.Cos(rad);
+            matrix.F = MathF.Sin(rad);
+            matrix.H = -MathF.Sin(rad);
+            matrix.I = MathF.Cos(rad);
+            return matrix;
+        }
+
+        TransformMatrix GetRotateYMatrix(float fi)
+        {
+            var rad = fi / 180 * MathF.PI;
+            var matrix = new TransformMatrix();
+            matrix.A = MathF.Cos(rad);
+            matrix.C = -MathF.Sin(rad);
+            matrix.G = MathF.Sin(rad);
+            matrix.I = MathF.Cos(rad);
+            return matrix;
+        }
+
+        TransformMatrix GetRotateZMatrix(float fi)
+        {
+            var rad = fi / 180 * MathF.PI;
+            var matrix = new TransformMatrix();
+            matrix.A = MathF.Cos(rad);
+            matrix.B = MathF.Sin(rad);
+            matrix.D = -MathF.Sin(rad);
+            matrix.E = MathF.Cos(rad);
+            return matrix;
+        }
+
         void DrawCube()
         {
             var pen = new Pen(Color.Black, 5);
-            var cube = Cube.Transform(GetScaleMatrix(50)).Transform(RotateXMatrix).Transform(RotateYMatrix).Transform(RotateZMatrix);
-            cube = cube.Transform(OrthographicXOYMatrix);
-            cube = cube.Transform(CenterMatrix);
+            var cube = Cube.Transform(GetScaleMatrix(50)).Transform(GetScaleMatrix(XScale, YScale, ZScale));
+            cube = cube.Transform(GetRotateXMatrix(XRotation)).Transform(GetRotateYMatrix(YRotation)).Transform(GetRotateZMatrix(ZRotation));
+
+            if (XOYDisplay)
+            {
+                cube = cube.Transform(XOYDisplayMatrix);
+            }
+            if (YOZDisplay)
+            {
+                cube = cube.Transform(YOZDisplayMatrix);
+            }
+            if (XOZDisplay)
+            {
+                cube = cube.Transform(XOZDisplayMatrix);
+            }
+
+            cube = cube.Transform(GetLocationMatrix(XLocation, YLocation, ZLocation));
+            cube = cube.Transform(OrthographicXOYMatrix).Transform(CenterMatrix);
 
             var g = Graphics.FromImage(Bitmap);
 
@@ -124,7 +276,7 @@ namespace GeneralLabs.View.Labs
             {
                 var start = new PointF(vector.Start.X, vector.Start.Y);
                 var end = new PointF(vector.End.X, vector.End.Y);
-                g.DrawLine(pen, start, end);
+                g.DrawLine(vector.Pen, start, end);
             }
 
             g.Dispose();
@@ -177,6 +329,16 @@ namespace GeneralLabs.View.Labs
 
         private void Lab4_Load(object sender, EventArgs e)
         {
+            XLocation = 0;
+            YLocation = 0;
+            ZLocation = 0;
+            XRotation = 20;
+            YRotation = 20;
+            ZRotation = 0;
+            XScale = 1;
+            YScale = 1;
+            ZScale = 1;
+
             Bitmap = new Bitmap(Width, Height);
             Draw();
             Timer.Interval = Interval;
@@ -192,6 +354,156 @@ namespace GeneralLabs.View.Labs
         {
             //fi = (fi + 1) % 360;
             Draw();
+        }
+
+        private void XLocationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                XLocation = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void YLocationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                YLocation = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void ZLocationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                ZLocation = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void XRotationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                XRotation = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void YRotationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                YRotation = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void ZRotationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                ZRotation = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void XScaleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                XScale = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void YScaleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                YScale = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void ZScaleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                ZScale = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void OXButton_Click(object sender, EventArgs e)
+        {
+            XOYDisplay = !XOYDisplay;
+        }
+
+        private void OYButton_Click(object sender, EventArgs e)
+        {
+            YOZDisplay = !YOZDisplay;
+        }
+
+        private void OZButton_Click(object sender, EventArgs e)
+        {
+            XOZDisplay = !XOZDisplay;
         }
     }
 }
