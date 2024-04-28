@@ -23,7 +23,8 @@ namespace GeneralLabs
 
         private void Lab4Button_Click(object sender, EventArgs e)
         {
-
+            var Lab4 = new Lab4();
+            Lab4.ShowDialog();
         }
     }
 }

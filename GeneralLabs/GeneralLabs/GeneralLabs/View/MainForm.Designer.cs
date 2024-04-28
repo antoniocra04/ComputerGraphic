@@ -30,10 +30,10 @@
         {
             Lab2Button = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
+            Lab4Button = new Button();
             panel1 = new Panel();
             label1 = new Label();
             Lab3Button = new Button();
-            Lab4Button = new Button();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -68,6 +68,17 @@
             tableLayoutPanel1.Size = new Size(497, 328);
             tableLayoutPanel1.TabIndex = 1;
             // 
+            // Lab4Button
+            // 
+            Lab4Button.Dock = DockStyle.Fill;
+            Lab4Button.Location = new Point(3, 264);
+            Lab4Button.Name = "Lab4Button";
+            Lab4Button.Size = new Size(491, 61);
+            Lab4Button.TabIndex = 3;
+            Lab4Button.Text = "Lab 4";
+            Lab4Button.UseVisualStyleBackColor = true;
+            Lab4Button.Click += Lab4Button_Click;
+            // 
             // panel1
             // 
             panel1.Controls.Add(label1);
@@ -98,18 +109,6 @@
             Lab3Button.Text = "Lab 3";
             Lab3Button.UseVisualStyleBackColor = true;
             Lab3Button.Click += Lab3Button_Click;
-            // 
-            // Lab4Button
-            // 
-            Lab4Button.Dock = DockStyle.Fill;
-            Lab4Button.Enabled = false;
-            Lab4Button.Location = new Point(3, 264);
-            Lab4Button.Name = "Lab4Button";
-            Lab4Button.Size = new Size(491, 61);
-            Lab4Button.TabIndex = 3;
-            Lab4Button.Text = "Lab 4";
-            Lab4Button.UseVisualStyleBackColor = true;
-            Lab4Button.Click += Lab4Button_Click;
             // 
             // MainForm
             // 
