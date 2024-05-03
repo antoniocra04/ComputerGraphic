@@ -183,6 +183,21 @@ namespace GeneralLabs.View.Labs
                 ZScaleTextBox.Text = ZScale.ToString();
             }
         }
+
+        float MoveSpeed { get; set; } = 1f;
+        float RotateSpeed { get; set; } = 1f;
+        float ScaleSpeed { get; set; } = 1f;
+        bool IsMoveX { get; set; } = false;
+        bool IsMoveY { get; set; } = false;
+        bool IsMoveZ { get; set; } = false;
+        bool IsRotateX { get; set; } = false;
+        bool IsRotateY { get; set; } = false;
+        bool IsRotateZ { get; set; } = false;
+        bool IsScaleX { get; set; } = false;
+        bool IsScaleY { get; set; } = false;
+        bool IsScaleZ { get; set; } = false;
+
+
         public Lab4()
         {
             InitializeComponent();
@@ -352,7 +367,43 @@ namespace GeneralLabs.View.Labs
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            //fi = (fi + 1) % 360;
+            if (IsMoveX)
+            {
+                XLocation += IsXLNeg.Checked ? -MoveSpeed : MoveSpeed;
+            }
+            if (IsMoveY)
+            {
+                YLocation += IsYLNeg.Checked ? -MoveSpeed : MoveSpeed;
+            }
+            if (IsMoveZ)
+            {
+                ZLocation += IsZLNeg.Checked ? -MoveSpeed : MoveSpeed;
+
+            }
+            if (IsRotateX)
+            {
+                XRotation += IsXRNeg.Checked ? -RotateSpeed : RotateSpeed;
+            }
+            if (IsRotateY)
+            {
+                YRotation += IsYRNeg.Checked ? -RotateSpeed : RotateSpeed;
+            }
+            if (IsRotateZ)
+            {
+                ZRotation += IsZRNeg.Checked ? -RotateSpeed : RotateSpeed;
+            }
+            if (IsScaleX)
+            {
+                XScale += IsXSNeg.Checked ? -ScaleSpeed : ScaleSpeed;
+            }
+            if (IsScaleY)
+            {
+                YScale += IsYSNeg.Checked ? -ScaleSpeed : ScaleSpeed;
+            }
+            if (IsScaleZ)
+            {
+                ZScale += IsZSNeg.Checked ? -ScaleSpeed : ScaleSpeed;
+            }
             Draw();
         }
 
@@ -504,6 +555,151 @@ namespace GeneralLabs.View.Labs
         private void OZButton_Click(object sender, EventArgs e)
         {
             XOZDisplay = !XOZDisplay;
+        }
+
+        private void XYLButton_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void XYLButton_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            IsMoveX = true;
+        }
+
+        private void label1_MouseUp(object sender, MouseEventArgs e)
+        {
+            IsMoveX = false;
+        }
+
+        private void label2_MouseDown(object sender, MouseEventArgs e)
+        {
+            IsMoveY = true;
+        }
+
+        private void label2_MouseUp(object sender, MouseEventArgs e)
+        {
+            IsMoveY = false;
+        }
+
+        private void label3_MouseDown(object sender, MouseEventArgs e)
+        {
+            IsMoveZ = true;
+        }
+
+        private void label3_MouseUp(object sender, MouseEventArgs e)
+        {
+            IsMoveZ = false;
+        }
+
+        private void label4_MouseDown(object sender, MouseEventArgs e)
+        {
+            IsRotateX = true;
+        }
+
+        private void label4_MouseUp(object sender, MouseEventArgs e)
+        {
+            IsRotateX = false;
+        }
+
+        private void label5_MouseDown(object sender, MouseEventArgs e)
+        {
+            IsRotateY = true;
+        }
+
+        private void label5_MouseUp(object sender, MouseEventArgs e)
+        {
+            IsRotateY = false;
+        }
+
+        private void label6_MouseDown(object sender, MouseEventArgs e)
+        {
+            IsRotateZ = true;
+        }
+
+        private void label6_MouseUp(object sender, MouseEventArgs e)
+        {
+            IsRotateZ = false;
+        }
+
+        private void label7_MouseDown(object sender, MouseEventArgs e)
+        {
+            IsScaleX = true;
+        }
+
+        private void label7_MouseUp(object sender, MouseEventArgs e)
+        {
+            IsScaleX = false;
+        }
+
+        private void label8_MouseDown(object sender, MouseEventArgs e)
+        {
+            IsScaleY = true;
+        }
+
+        private void label8_MouseUp(object sender, MouseEventArgs e)
+        {
+            IsScaleY = false;
+        }
+
+        private void label9_MouseDown(object sender, MouseEventArgs e)
+        {
+            IsScaleZ = true;
+        }
+
+        private void label9_MouseUp(object sender, MouseEventArgs e)
+        {
+            IsScaleZ = false;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                MoveSpeed = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                RotateSpeed = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            try
+            {
+                ScaleSpeed = float.Parse(textBox.Text);
+                textBox.BackColor = Color.White;
+            }
+            catch
+            {
+                textBox.BackColor = Color.LightPink;
+            }
         }
     }
 }
