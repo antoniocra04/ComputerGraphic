@@ -5,11 +5,9 @@ namespace ComputerGraphic.View.Labs.Lab3.Tabs
 {
     public partial class Lab3_Task10 : UserControl
     {
-        int _interval;
-
         Bitmap Bitmap { get; set; }
 
-        List<Vector2> Craters { get; set; }
+        List<Vector2> Craters { get; set; } //мега сука костыль
 
         TransformMatrix MatrixToCenter
         {

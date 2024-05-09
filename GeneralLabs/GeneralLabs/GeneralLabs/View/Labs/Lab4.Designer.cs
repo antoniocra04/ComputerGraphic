@@ -39,13 +39,13 @@
             OYButton = new Button();
             OXButton = new Button();
             ScaleGroupBox = new GroupBox();
+            decreaseSizeZ = new Button();
+            decreaseSizeY = new Button();
+            decreaseSizeX = new Button();
+            increaseSizeZ = new Button();
+            increaseSizeY = new Button();
+            increaseSizeX = new Button();
             textBox3 = new TextBox();
-            XYZSButton = new Button();
-            ZYSButton = new Button();
-            XYSButton = new Button();
-            IsZSNeg = new CheckBox();
-            IsYSNeg = new CheckBox();
-            IsXSNeg = new CheckBox();
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
@@ -53,13 +53,13 @@
             YScaleTextBox = new TextBox();
             XScaleTextBox = new TextBox();
             RotationGroupBox = new GroupBox();
+            decreaseRotateZ = new Button();
+            decreaseRotateY = new Button();
+            decreaseRotateX = new Button();
+            increaseRotateZ = new Button();
+            increaseRotateY = new Button();
+            increaseRotateX = new Button();
             textBox1 = new TextBox();
-            XYZRButton = new Button();
-            YZRButton = new Button();
-            XYRButton = new Button();
-            IsZRNeg = new CheckBox();
-            IsYRNeg = new CheckBox();
-            IsXRNeg = new CheckBox();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -67,13 +67,13 @@
             YRotationTextBox = new TextBox();
             XRotationTextBox = new TextBox();
             LocationGroupBox = new GroupBox();
+            decreasePositionZ = new Button();
+            decreasePositionY = new Button();
+            decreasePositionX = new Button();
+            increasePositionZ = new Button();
+            increasePositionY = new Button();
+            increasePositionX = new Button();
             textBox2 = new TextBox();
-            YZLButton = new Button();
-            XYLButton = new Button();
-            XYZLButton = new Button();
-            IsZLNeg = new CheckBox();
-            IsYLNeg = new CheckBox();
-            IsXLNeg = new CheckBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -194,13 +194,13 @@
             // 
             // ScaleGroupBox
             // 
+            ScaleGroupBox.Controls.Add(decreaseSizeZ);
+            ScaleGroupBox.Controls.Add(decreaseSizeY);
+            ScaleGroupBox.Controls.Add(decreaseSizeX);
+            ScaleGroupBox.Controls.Add(increaseSizeZ);
+            ScaleGroupBox.Controls.Add(increaseSizeY);
+            ScaleGroupBox.Controls.Add(increaseSizeX);
             ScaleGroupBox.Controls.Add(textBox3);
-            ScaleGroupBox.Controls.Add(XYZSButton);
-            ScaleGroupBox.Controls.Add(ZYSButton);
-            ScaleGroupBox.Controls.Add(XYSButton);
-            ScaleGroupBox.Controls.Add(IsZSNeg);
-            ScaleGroupBox.Controls.Add(IsYSNeg);
-            ScaleGroupBox.Controls.Add(IsXSNeg);
             ScaleGroupBox.Controls.Add(label9);
             ScaleGroupBox.Controls.Add(label8);
             ScaleGroupBox.Controls.Add(label7);
@@ -214,6 +214,66 @@
             ScaleGroupBox.TabStop = false;
             ScaleGroupBox.Text = "Масштаб";
             // 
+            // decreaseSizeZ
+            // 
+            decreaseSizeZ.Location = new Point(80, 75);
+            decreaseSizeZ.Name = "decreaseSizeZ";
+            decreaseSizeZ.Size = new Size(28, 23);
+            decreaseSizeZ.TabIndex = 21;
+            decreaseSizeZ.Text = "<";
+            decreaseSizeZ.UseVisualStyleBackColor = true;
+            decreaseSizeZ.Click += decreaseSizeZ_Click;
+            // 
+            // decreaseSizeY
+            // 
+            decreaseSizeY.Location = new Point(80, 51);
+            decreaseSizeY.Name = "decreaseSizeY";
+            decreaseSizeY.Size = new Size(28, 23);
+            decreaseSizeY.TabIndex = 20;
+            decreaseSizeY.Text = "<";
+            decreaseSizeY.UseVisualStyleBackColor = true;
+            decreaseSizeY.Click += decreaseSizeY_Click;
+            // 
+            // decreaseSizeX
+            // 
+            decreaseSizeX.Location = new Point(80, 26);
+            decreaseSizeX.Name = "decreaseSizeX";
+            decreaseSizeX.Size = new Size(28, 23);
+            decreaseSizeX.TabIndex = 19;
+            decreaseSizeX.Text = "<";
+            decreaseSizeX.UseVisualStyleBackColor = true;
+            decreaseSizeX.Click += decreaseSizeX_Click;
+            // 
+            // increaseSizeZ
+            // 
+            increaseSizeZ.Location = new Point(114, 75);
+            increaseSizeZ.Name = "increaseSizeZ";
+            increaseSizeZ.Size = new Size(28, 23);
+            increaseSizeZ.TabIndex = 18;
+            increaseSizeZ.Text = ">";
+            increaseSizeZ.UseVisualStyleBackColor = true;
+            increaseSizeZ.Click += increaseSizeZ_Click;
+            // 
+            // increaseSizeY
+            // 
+            increaseSizeY.Location = new Point(114, 51);
+            increaseSizeY.Name = "increaseSizeY";
+            increaseSizeY.Size = new Size(28, 23);
+            increaseSizeY.TabIndex = 17;
+            increaseSizeY.Text = ">";
+            increaseSizeY.UseVisualStyleBackColor = true;
+            increaseSizeY.Click += increaseSizeY_Click;
+            // 
+            // increaseSizeX
+            // 
+            increaseSizeX.Location = new Point(114, 26);
+            increaseSizeX.Name = "increaseSizeX";
+            increaseSizeX.Size = new Size(28, 23);
+            increaseSizeX.TabIndex = 16;
+            increaseSizeX.Text = ">";
+            increaseSizeX.UseVisualStyleBackColor = true;
+            increaseSizeX.Click += increaseSizeX_Click;
+            // 
             // textBox3
             // 
             textBox3.Location = new Point(75, -3);
@@ -221,57 +281,6 @@
             textBox3.Size = new Size(67, 23);
             textBox3.TabIndex = 15;
             textBox3.TextChanged += textBox3_TextChanged;
-            // 
-            // XYZSButton
-            // 
-            XYZSButton.Location = new Point(105, 22);
-            XYZSButton.Name = "XYZSButton";
-            XYZSButton.Size = new Size(23, 74);
-            XYZSButton.TabIndex = 14;
-            XYZSButton.UseVisualStyleBackColor = true;
-            // 
-            // ZYSButton
-            // 
-            ZYSButton.Location = new Point(76, 51);
-            ZYSButton.Name = "ZYSButton";
-            ZYSButton.Size = new Size(23, 47);
-            ZYSButton.TabIndex = 14;
-            ZYSButton.UseVisualStyleBackColor = true;
-            // 
-            // XYSButton
-            // 
-            XYSButton.Location = new Point(48, 26);
-            XYSButton.Name = "XYSButton";
-            XYSButton.Size = new Size(23, 47);
-            XYSButton.TabIndex = 14;
-            XYSButton.UseVisualStyleBackColor = true;
-            // 
-            // IsZSNeg
-            // 
-            IsZSNeg.AutoSize = true;
-            IsZSNeg.Location = new Point(26, 84);
-            IsZSNeg.Name = "IsZSNeg";
-            IsZSNeg.Size = new Size(15, 14);
-            IsZSNeg.TabIndex = 14;
-            IsZSNeg.UseVisualStyleBackColor = true;
-            // 
-            // IsYSNeg
-            // 
-            IsYSNeg.AutoSize = true;
-            IsYSNeg.Location = new Point(26, 55);
-            IsYSNeg.Name = "IsYSNeg";
-            IsYSNeg.Size = new Size(15, 14);
-            IsYSNeg.TabIndex = 13;
-            IsYSNeg.UseVisualStyleBackColor = true;
-            // 
-            // IsXSNeg
-            // 
-            IsXSNeg.AutoSize = true;
-            IsXSNeg.Location = new Point(26, 26);
-            IsXSNeg.Name = "IsXSNeg";
-            IsXSNeg.Size = new Size(15, 14);
-            IsXSNeg.TabIndex = 12;
-            IsXSNeg.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -281,8 +290,6 @@
             label9.Size = new Size(14, 15);
             label9.TabIndex = 11;
             label9.Text = "Z";
-            label9.MouseDown += label9_MouseDown;
-            label9.MouseUp += label9_MouseUp;
             // 
             // label8
             // 
@@ -292,8 +299,6 @@
             label8.Size = new Size(14, 15);
             label8.TabIndex = 10;
             label8.Text = "Y";
-            label8.MouseDown += label8_MouseDown;
-            label8.MouseUp += label8_MouseUp;
             // 
             // label7
             // 
@@ -303,8 +308,6 @@
             label7.Size = new Size(14, 15);
             label7.TabIndex = 9;
             label7.Text = "X";
-            label7.MouseDown += label7_MouseDown;
-            label7.MouseUp += label7_MouseUp;
             // 
             // ZScaleTextBox
             // 
@@ -332,13 +335,13 @@
             // 
             // RotationGroupBox
             // 
+            RotationGroupBox.Controls.Add(decreaseRotateZ);
+            RotationGroupBox.Controls.Add(decreaseRotateY);
+            RotationGroupBox.Controls.Add(decreaseRotateX);
+            RotationGroupBox.Controls.Add(increaseRotateZ);
+            RotationGroupBox.Controls.Add(increaseRotateY);
+            RotationGroupBox.Controls.Add(increaseRotateX);
             RotationGroupBox.Controls.Add(textBox1);
-            RotationGroupBox.Controls.Add(XYZRButton);
-            RotationGroupBox.Controls.Add(YZRButton);
-            RotationGroupBox.Controls.Add(XYRButton);
-            RotationGroupBox.Controls.Add(IsZRNeg);
-            RotationGroupBox.Controls.Add(IsYRNeg);
-            RotationGroupBox.Controls.Add(IsXRNeg);
             RotationGroupBox.Controls.Add(label6);
             RotationGroupBox.Controls.Add(label5);
             RotationGroupBox.Controls.Add(label4);
@@ -352,6 +355,66 @@
             RotationGroupBox.TabStop = false;
             RotationGroupBox.Text = "Поворот";
             // 
+            // decreaseRotateZ
+            // 
+            decreaseRotateZ.Location = new Point(80, 75);
+            decreaseRotateZ.Name = "decreaseRotateZ";
+            decreaseRotateZ.Size = new Size(28, 23);
+            decreaseRotateZ.TabIndex = 27;
+            decreaseRotateZ.Text = "<";
+            decreaseRotateZ.UseVisualStyleBackColor = true;
+            decreaseRotateZ.Click += decreaseRotateZ_Click;
+            // 
+            // decreaseRotateY
+            // 
+            decreaseRotateY.Location = new Point(80, 51);
+            decreaseRotateY.Name = "decreaseRotateY";
+            decreaseRotateY.Size = new Size(28, 23);
+            decreaseRotateY.TabIndex = 26;
+            decreaseRotateY.Text = "<";
+            decreaseRotateY.UseVisualStyleBackColor = true;
+            decreaseRotateY.Click += decreaseRotateY_Click;
+            // 
+            // decreaseRotateX
+            // 
+            decreaseRotateX.Location = new Point(80, 26);
+            decreaseRotateX.Name = "decreaseRotateX";
+            decreaseRotateX.Size = new Size(28, 23);
+            decreaseRotateX.TabIndex = 25;
+            decreaseRotateX.Text = "<";
+            decreaseRotateX.UseVisualStyleBackColor = true;
+            decreaseRotateX.Click += decreaseRotateX_Click;
+            // 
+            // increaseRotateZ
+            // 
+            increaseRotateZ.Location = new Point(114, 75);
+            increaseRotateZ.Name = "increaseRotateZ";
+            increaseRotateZ.Size = new Size(28, 23);
+            increaseRotateZ.TabIndex = 24;
+            increaseRotateZ.Text = ">";
+            increaseRotateZ.UseVisualStyleBackColor = true;
+            increaseRotateZ.Click += increaseRotateZ_Click;
+            // 
+            // increaseRotateY
+            // 
+            increaseRotateY.Location = new Point(114, 51);
+            increaseRotateY.Name = "increaseRotateY";
+            increaseRotateY.Size = new Size(28, 23);
+            increaseRotateY.TabIndex = 23;
+            increaseRotateY.Text = ">";
+            increaseRotateY.UseVisualStyleBackColor = true;
+            increaseRotateY.Click += increaseRotateY_Click;
+            // 
+            // increaseRotateX
+            // 
+            increaseRotateX.Location = new Point(114, 26);
+            increaseRotateX.Name = "increaseRotateX";
+            increaseRotateX.Size = new Size(28, 23);
+            increaseRotateX.TabIndex = 22;
+            increaseRotateX.Text = ">";
+            increaseRotateX.UseVisualStyleBackColor = true;
+            increaseRotateX.Click += increaseRotateX_Click;
+            // 
             // textBox1
             // 
             textBox1.Location = new Point(61, -5);
@@ -359,57 +422,6 @@
             textBox1.Size = new Size(67, 23);
             textBox1.TabIndex = 12;
             textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // XYZRButton
-            // 
-            XYZRButton.Location = new Point(105, 24);
-            XYZRButton.Name = "XYZRButton";
-            XYZRButton.Size = new Size(23, 74);
-            XYZRButton.TabIndex = 12;
-            XYZRButton.UseVisualStyleBackColor = true;
-            // 
-            // YZRButton
-            // 
-            YZRButton.Location = new Point(76, 51);
-            YZRButton.Name = "YZRButton";
-            YZRButton.Size = new Size(23, 47);
-            YZRButton.TabIndex = 13;
-            YZRButton.UseVisualStyleBackColor = true;
-            // 
-            // XYRButton
-            // 
-            XYRButton.Location = new Point(47, 25);
-            XYRButton.Name = "XYRButton";
-            XYRButton.Size = new Size(23, 47);
-            XYRButton.TabIndex = 12;
-            XYRButton.UseVisualStyleBackColor = true;
-            // 
-            // IsZRNeg
-            // 
-            IsZRNeg.AutoSize = true;
-            IsZRNeg.Location = new Point(26, 84);
-            IsZRNeg.Name = "IsZRNeg";
-            IsZRNeg.Size = new Size(15, 14);
-            IsZRNeg.TabIndex = 11;
-            IsZRNeg.UseVisualStyleBackColor = true;
-            // 
-            // IsYRNeg
-            // 
-            IsYRNeg.AutoSize = true;
-            IsYRNeg.Location = new Point(26, 55);
-            IsYRNeg.Name = "IsYRNeg";
-            IsYRNeg.Size = new Size(15, 14);
-            IsYRNeg.TabIndex = 10;
-            IsYRNeg.UseVisualStyleBackColor = true;
-            // 
-            // IsXRNeg
-            // 
-            IsXRNeg.AutoSize = true;
-            IsXRNeg.Location = new Point(26, 26);
-            IsXRNeg.Name = "IsXRNeg";
-            IsXRNeg.Size = new Size(15, 14);
-            IsXRNeg.TabIndex = 9;
-            IsXRNeg.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -419,8 +431,6 @@
             label6.Size = new Size(14, 15);
             label6.TabIndex = 8;
             label6.Text = "Z";
-            label6.MouseDown += label6_MouseDown;
-            label6.MouseUp += label6_MouseUp;
             // 
             // label5
             // 
@@ -430,8 +440,6 @@
             label5.Size = new Size(14, 15);
             label5.TabIndex = 7;
             label5.Text = "Y";
-            label5.MouseDown += label5_MouseDown;
-            label5.MouseUp += label5_MouseUp;
             // 
             // label4
             // 
@@ -441,8 +449,6 @@
             label4.Size = new Size(14, 15);
             label4.TabIndex = 6;
             label4.Text = "X";
-            label4.MouseDown += label4_MouseDown;
-            label4.MouseUp += label4_MouseUp;
             // 
             // ZRotationTextBox
             // 
@@ -470,13 +476,13 @@
             // 
             // LocationGroupBox
             // 
+            LocationGroupBox.Controls.Add(decreasePositionZ);
+            LocationGroupBox.Controls.Add(decreasePositionY);
+            LocationGroupBox.Controls.Add(decreasePositionX);
+            LocationGroupBox.Controls.Add(increasePositionZ);
+            LocationGroupBox.Controls.Add(increasePositionY);
+            LocationGroupBox.Controls.Add(increasePositionX);
             LocationGroupBox.Controls.Add(textBox2);
-            LocationGroupBox.Controls.Add(YZLButton);
-            LocationGroupBox.Controls.Add(XYLButton);
-            LocationGroupBox.Controls.Add(XYZLButton);
-            LocationGroupBox.Controls.Add(IsZLNeg);
-            LocationGroupBox.Controls.Add(IsYLNeg);
-            LocationGroupBox.Controls.Add(IsXLNeg);
             LocationGroupBox.Controls.Add(label3);
             LocationGroupBox.Controls.Add(label2);
             LocationGroupBox.Controls.Add(label1);
@@ -490,6 +496,66 @@
             LocationGroupBox.TabStop = false;
             LocationGroupBox.Text = "Местоположение";
             // 
+            // decreasePositionZ
+            // 
+            decreasePositionZ.Location = new Point(80, 78);
+            decreasePositionZ.Name = "decreasePositionZ";
+            decreasePositionZ.Size = new Size(28, 23);
+            decreasePositionZ.TabIndex = 33;
+            decreasePositionZ.Text = "<";
+            decreasePositionZ.UseVisualStyleBackColor = true;
+            decreasePositionZ.Click += decreasePositionZ_Click;
+            // 
+            // decreasePositionY
+            // 
+            decreasePositionY.Location = new Point(80, 54);
+            decreasePositionY.Name = "decreasePositionY";
+            decreasePositionY.Size = new Size(28, 23);
+            decreasePositionY.TabIndex = 32;
+            decreasePositionY.Text = "<";
+            decreasePositionY.UseVisualStyleBackColor = true;
+            decreasePositionY.Click += decreasePositionY_Click;
+            // 
+            // decreasePositionX
+            // 
+            decreasePositionX.Location = new Point(80, 29);
+            decreasePositionX.Name = "decreasePositionX";
+            decreasePositionX.Size = new Size(28, 23);
+            decreasePositionX.TabIndex = 31;
+            decreasePositionX.Text = "<";
+            decreasePositionX.UseVisualStyleBackColor = true;
+            decreasePositionX.Click += decreasePositionX_Click;
+            // 
+            // increasePositionZ
+            // 
+            increasePositionZ.Location = new Point(114, 78);
+            increasePositionZ.Name = "increasePositionZ";
+            increasePositionZ.Size = new Size(28, 23);
+            increasePositionZ.TabIndex = 30;
+            increasePositionZ.Text = ">";
+            increasePositionZ.UseVisualStyleBackColor = true;
+            increasePositionZ.Click += increasePositionZ_Click;
+            // 
+            // increasePositionY
+            // 
+            increasePositionY.Location = new Point(114, 54);
+            increasePositionY.Name = "increasePositionY";
+            increasePositionY.Size = new Size(28, 23);
+            increasePositionY.TabIndex = 29;
+            increasePositionY.Text = ">";
+            increasePositionY.UseVisualStyleBackColor = true;
+            increasePositionY.Click += increasePositionY_Click;
+            // 
+            // increasePositionX
+            // 
+            increasePositionX.Location = new Point(114, 29);
+            increasePositionX.Name = "increasePositionX";
+            increasePositionX.Size = new Size(28, 23);
+            increasePositionX.TabIndex = 28;
+            increasePositionX.Text = ">";
+            increasePositionX.UseVisualStyleBackColor = true;
+            increasePositionX.Click += increasePositionX_Click;
+            // 
             // textBox2
             // 
             textBox2.Location = new Point(114, -7);
@@ -497,59 +563,6 @@
             textBox2.Size = new Size(67, 23);
             textBox2.TabIndex = 14;
             textBox2.TextChanged += textBox2_TextChanged;
-            // 
-            // YZLButton
-            // 
-            YZLButton.Location = new Point(76, 51);
-            YZLButton.Name = "YZLButton";
-            YZLButton.Size = new Size(23, 47);
-            YZLButton.TabIndex = 11;
-            YZLButton.UseVisualStyleBackColor = true;
-            // 
-            // XYLButton
-            // 
-            XYLButton.Location = new Point(47, 22);
-            XYLButton.Name = "XYLButton";
-            XYLButton.Size = new Size(23, 47);
-            XYLButton.TabIndex = 10;
-            XYLButton.UseVisualStyleBackColor = true;
-            XYLButton.MouseDown += XYLButton_MouseDown;
-            XYLButton.MouseUp += XYLButton_MouseUp;
-            // 
-            // XYZLButton
-            // 
-            XYZLButton.Location = new Point(105, 24);
-            XYZLButton.Name = "XYZLButton";
-            XYZLButton.Size = new Size(23, 74);
-            XYZLButton.TabIndex = 9;
-            XYZLButton.UseVisualStyleBackColor = true;
-            // 
-            // IsZLNeg
-            // 
-            IsZLNeg.AutoSize = true;
-            IsZLNeg.Location = new Point(26, 84);
-            IsZLNeg.Name = "IsZLNeg";
-            IsZLNeg.Size = new Size(15, 14);
-            IsZLNeg.TabIndex = 8;
-            IsZLNeg.UseVisualStyleBackColor = true;
-            // 
-            // IsYLNeg
-            // 
-            IsYLNeg.AutoSize = true;
-            IsYLNeg.Location = new Point(26, 55);
-            IsYLNeg.Name = "IsYLNeg";
-            IsYLNeg.Size = new Size(15, 14);
-            IsYLNeg.TabIndex = 7;
-            IsYLNeg.UseVisualStyleBackColor = true;
-            // 
-            // IsXLNeg
-            // 
-            IsXLNeg.AutoSize = true;
-            IsXLNeg.Location = new Point(26, 24);
-            IsXLNeg.Name = "IsXLNeg";
-            IsXLNeg.Size = new Size(15, 14);
-            IsXLNeg.TabIndex = 6;
-            IsXLNeg.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -559,8 +572,6 @@
             label3.Size = new Size(14, 15);
             label3.TabIndex = 5;
             label3.Text = "Z";
-            label3.MouseDown += label3_MouseDown;
-            label3.MouseUp += label3_MouseUp;
             // 
             // label2
             // 
@@ -570,8 +581,6 @@
             label2.Size = new Size(14, 15);
             label2.TabIndex = 4;
             label2.Text = "Y";
-            label2.MouseDown += label2_MouseDown;
-            label2.MouseUp += label2_MouseUp;
             // 
             // label1
             // 
@@ -581,8 +590,6 @@
             label1.Size = new Size(14, 15);
             label1.TabIndex = 3;
             label1.Text = "X";
-            label1.MouseDown += label1_MouseDown;
-            label1.MouseUp += label1_MouseUp;
             // 
             // ZLocationTextBox
             // 
@@ -664,26 +671,26 @@
         private Button OZButton;
         private Button OYButton;
         private Button OXButton;
-        private CheckBox IsXLNeg;
-        private Button XYZSButton;
-        private Button ZYSButton;
-        private Button XYSButton;
-        private CheckBox IsZSNeg;
-        private CheckBox IsYSNeg;
-        private CheckBox IsXSNeg;
-        private Button XYZRButton;
-        private Button YZRButton;
-        private Button XYRButton;
-        private CheckBox IsZRNeg;
-        private CheckBox IsYRNeg;
-        private CheckBox IsXRNeg;
-        private Button YZLButton;
-        private Button XYLButton;
-        private Button XYZLButton;
-        private CheckBox IsZLNeg;
-        private CheckBox IsYLNeg;
         private TextBox textBox1;
         private TextBox textBox3;
         private TextBox textBox2;
+        private Button increaseSizeX;
+        private Button decreaseSizeZ;
+        private Button decreaseSizeY;
+        private Button decreaseSizeX;
+        private Button increaseSizeZ;
+        private Button increaseSizeY;
+        private Button decreaseRotateZ;
+        private Button decreaseRotateY;
+        private Button decreaseRotateX;
+        private Button increaseRotateZ;
+        private Button increaseRotateY;
+        private Button increaseRotateX;
+        private Button decreasePositionZ;
+        private Button decreasePositionY;
+        private Button decreasePositionX;
+        private Button increasePositionZ;
+        private Button increasePositionY;
+        private Button increasePositionX;
     }
 }
