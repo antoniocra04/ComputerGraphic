@@ -154,13 +154,13 @@
             // Lab4Button
             // 
             Lab4Button.Dock = DockStyle.Fill;
-            Lab4Button.Enabled = false;
             Lab4Button.Location = new Point(3, 162);
             Lab4Button.Name = "Lab4Button";
             Lab4Button.Size = new Size(349, 50);
             Lab4Button.TabIndex = 7;
             Lab4Button.Text = "Лаба 4";
             Lab4Button.UseVisualStyleBackColor = true;
+            Lab4Button.Click += Lab4Button_Click;
             // 
             // Lab1Button
             // 
