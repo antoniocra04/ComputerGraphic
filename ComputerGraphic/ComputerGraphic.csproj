@@ -6,6 +6,23 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ReTao" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Tao.FreeGlut">
+      <HintPath>C:\Program Files (x86)\TaoFramework\bin\Tao.FreeGlut.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.OpenGl">
+      <HintPath>C:\Program Files (x86)\TaoFramework\bin\Tao.OpenGl.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.Platform.Windows">
+      <HintPath>C:\Program Files (x86)\TaoFramework\bin\Tao.Platform.Windows.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>
