@@ -33,7 +33,7 @@ namespace ComputerGraphic
         private void Lab4Button_Click(object sender, EventArgs e)
         {
             var lab = new Lab4();
-            lab.ShowDialog();
+            lab.Show();
         }
     }
 }
