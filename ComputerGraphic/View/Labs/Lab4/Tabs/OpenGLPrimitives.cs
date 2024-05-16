@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Threading;
-using Tao.OpenGl;
+﻿using Tao.OpenGl;
 using Tao.FreeGlut;
-using Tao.Platform.Windows;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-using System.Reflection.Metadata;
 
 namespace ComputerGraphic.View.Labs.Lab4.Tabs
 {
@@ -37,24 +24,6 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             Glut.glutCreateWindow("Primitives");
 
         }
-
-        static void on_display()
-        {
-            Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
-            Gl.glLoadIdentity();
-            Glu.gluLookAt(0, 0, 5, 0, 0, 1, 0, 1, 0);
-            Glut.glutSwapBuffers();
-        }
-
-        static void on_reshape(int w, int h)
-        {
-            Gl.glMatrixMode(Gl.GL_PROJECTION);
-            Gl.glLoadIdentity();
-            Gl.glViewport(0, 0, w, h);
-            Glu.gluPerspective(40, w / h, 1, 100);
-            Gl.glMatrixMode(Gl.GL_MODELVIEW);
-        }
-
 
         private void showSolid(int obj)
         {
@@ -107,6 +76,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             Gl.glMatrixMode(Gl.GL_PROJECTION);
             Gl.glLoadIdentity();
             Gl.glRotated(-30, 1, 0, 0);
+            // Поворачиваем по 3 углам
             Gl.glRotated(AngleX, 1, 0, 0);
             Gl.glRotated(AngleY, 0, 1, 0);
             Gl.glRotated(AngleZ, 0, 0, 1);
@@ -171,16 +141,12 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
                     0 }; // Координаты источника света
                 float[] lghtClr = { 1, 1, 1, 0 };
                 // Источник излучает белый цвет
-                float[] mtClr = { MaterialColor.R / 256f, MaterialColor.G / 256f, MaterialColor.B / 256f, 0 }; // Материал зеленого цвета
-                Gl.glPolygonMode(Gl.GL_FRONT, Gl.GL_FILL);
-                // Заливка полигонов
-                Gl.glShadeModel(Gl.GL_SMOOTH);
-                // Вывод с интерполяцией цветов
-                Gl.glEnable(Gl.GL_LIGHTING);
-                // Будем рассчитывать освещенность
+                float[] mtClr = { MaterialColor.R / 256f, MaterialColor.G / 256f, MaterialColor.B / 256f, 0 }; // Материал нашего цвета
+                Gl.glPolygonMode(Gl.GL_FRONT, Gl.GL_FILL); // Заливка полигонов
+                Gl.glShadeModel(Gl.GL_SMOOTH); // Вывод с интерполяцией цветов
+                Gl.glEnable(Gl.GL_LIGHTING); // Будем рассчитывать освещенность
                 Gl.glLightfv(Gl.GL_LIGHT0, Gl.GL_POSITION, light_position);
-                Gl.glLightfv(Gl.GL_LIGHT0, Gl.GL_AMBIENT, lghtClr);
-                // Рассеивание
+                Gl.glLightfv(Gl.GL_LIGHT0, Gl.GL_AMBIENT, lghtClr); // Рассеивание
                 Gl.glEnable(Gl.GL_LIGHT0);
                 // Включаем в уравнение освещенности источник GL_LIGHT0                 
                 // Диффузионная компонента цвета материала
@@ -198,7 +164,6 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             }
             Glu.gluLookAt(0, 0, 0, 0, 0, 0, 0, 0, 0);
             Glut.glutSwapBuffers();
-            //Pr.Invalidate();
         }
         private void button1_Click(object sender, EventArgs e)
         {
