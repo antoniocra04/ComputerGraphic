@@ -22,11 +22,20 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
         /// <summary>
         /// Вдоль оси OZ на плоскость XOY.
         /// </summary>
-        TransformMatrix3 OrthographicXOYMatrix
+        TransformMatrix3 DimetricXOYMatrix
         {
             get
             {
                 var matrix = new TransformMatrix3();
+
+                var alpha = 22.208f / 180f * MathF.PI;
+                var beta = 20.705f / 180f * MathF.PI;
+
+                matrix.A = MathF.Cos(alpha);
+                matrix.B = MathF.Sin(alpha) * MathF.Sin(beta);
+                matrix.E = MathF.Cos(beta);
+                matrix.G = MathF.Sin(alpha);
+                matrix.H = -MathF.Cos(alpha) * MathF.Sin(beta);
                 matrix.I = 0;
                 return matrix;
             }
@@ -90,29 +99,9 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             }
         }
 
-        int fi { get; set; } = 0;
-
-        float Fi => fi / 180f * MathF.PI;
-
         Figure Cube { get; set; } = new Figure();
 
         int Interval { get; set; } = 50;
-
-        bool XOYDisplay { get; set; } = false;
-        bool YOZDisplay { get; set; } = false;
-        bool XOZDisplay { get; set; } = false;
-        float MoveSpeed { get; set; } = 1f;
-        float RotateSpeed { get; set; } = 1f;
-        float ScaleSpeed { get; set; } = 1f;
-        bool IsMoveX { get; set; } = false;
-        bool IsMoveY { get; set; } = false;
-        bool IsMoveZ { get; set; } = false;
-        bool IsRotateX { get; set; } = false;
-        bool IsRotateY { get; set; } = false;
-        bool IsRotateZ { get; set; } = false;
-        bool IsScaleX { get; set; } = false;
-        bool IsScaleY { get; set; } = false;
-        bool IsScaleZ { get; set; } = false;
 
         public Lab4_Task2_1()
         {
@@ -182,24 +171,10 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
         void DrawCube()
         {
             var pen = new Pen(Color.Black, 5);
-            var cube = Cube.Transform(GetScaleMatrix(50)).Transform(GetScaleMatrix(1, 1, 1));
-            cube = cube.Transform(GetRotateXMatrix(50)).Transform(GetRotateYMatrix(60)).Transform(GetRotateZMatrix(6));
-
-            if (XOYDisplay)
-            {
-                cube = cube.Transform(XOYDisplayMatrix);
-            }
-            if (YOZDisplay)
-            {
-                cube = cube.Transform(YOZDisplayMatrix);
-            }
-            if (XOZDisplay)
-            {
-                cube = cube.Transform(XOZDisplayMatrix);
-            }
+            var cube = Cube.Transform(GetScaleMatrix(50));
 
             cube = cube.Transform(GetLocationMatrix(0, 0, 0));
-            cube = cube.Transform(OrthographicXOYMatrix).Transform(CenterMatrix);
+            cube = cube.Transform(DimetricXOYMatrix).Transform(CenterMatrix);
 
             var g = Graphics.FromImage(Bitmap);
 
@@ -221,7 +196,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             var yPen = new Pen(Color.Green, penSize);
             var zPen = new Pen(Color.Blue, penSize);
 
-            var osi = Osi.Transform(GetScaleMatrix(100)).Transform(OrthographicXOYMatrix).Transform(CenterMatrix);
+            var osi = Osi.Transform(GetScaleMatrix(100)).Transform(DimetricXOYMatrix).Transform(CenterMatrix);
 
             var g = Graphics.FromImage(Bitmap);
 
