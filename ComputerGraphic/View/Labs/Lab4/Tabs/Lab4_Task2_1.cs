@@ -131,7 +131,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
 
         TransformMatrix3 GetRotateXMatrix(float fi)
         {
-            var rad = fi / 180 * MathF.PI;
+            var rad = (fi - 180) / 180 * MathF.PI;
             var matrix = new TransformMatrix3();
             matrix.E = MathF.Cos(rad);
             matrix.F = MathF.Sin(rad);
@@ -142,7 +142,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
 
         TransformMatrix3 GetRotateYMatrix(float fi)
         {
-            var rad = fi / 180 * MathF.PI;
+            var rad = (fi - 180) / 180 * MathF.PI;
             var matrix = new TransformMatrix3();
             matrix.A = MathF.Cos(rad);
             matrix.C = -MathF.Sin(rad);
@@ -153,7 +153,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
 
         TransformMatrix3 GetRotateZMatrix(float fi)
         {
-            var rad = fi / 180 * MathF.PI;
+            var rad = (fi - 180) / 180 * MathF.PI;
             var matrix = new TransformMatrix3();
             matrix.A = MathF.Cos(rad);
             matrix.B = MathF.Sin(rad);
@@ -168,8 +168,8 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             var pen = new Pen(Color.Black, 5);
             var transparentPen = new Pen(Color.Black, 3);
             var figure = Figure.Transform(GetScaleMatrix(50));
-            figure = figure.Transform(GetRotateXMatrix(0));
-            figure = figure.Transform(GetRotateZMatrix(AngleDegrees)).Transform(GetRotateYMatrix(125));
+            figure = figure.Transform(GetRotateYMatrix(AngleDegrees)).Transform(GetRotateXMatrix(0));
+            figure = figure.Transform(GetRotateZMatrix(-65));
             figure = figure.Transform(GetLocationMatrix(0, 0, 0));
             var visibleFigure = figure.Transform(DimetricXOYMatrix).Transform(CenterMatrix);
 
@@ -285,7 +285,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            AngleDegrees = (AngleDegrees + 1) % 180f;
+            AngleDegrees = (AngleDegrees + 1) % 360f;
             Draw();
         }
     }
