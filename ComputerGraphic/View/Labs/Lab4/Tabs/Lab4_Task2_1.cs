@@ -167,8 +167,9 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             var observer = new Point3(4000, -4000, -10000);
             var pen = new Pen(Color.Black, 5);
             var transparentPen = new Pen(Color.Black, 3);
-            var figure = Figure.Transform(GetScaleMatrix(50)).Transform(GetRotateYMatrix(AngleDegrees));
-
+            var figure = Figure.Transform(GetScaleMatrix(50));
+            figure = figure.Transform(GetRotateXMatrix(0));
+            figure = figure.Transform(GetRotateZMatrix(AngleDegrees)).Transform(GetRotateYMatrix(125));
             figure = figure.Transform(GetLocationMatrix(0, 0, 0));
             var visibleFigure = figure.Transform(DimetricXOYMatrix).Transform(CenterMatrix);
 
@@ -239,6 +240,16 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
                 zPen,
                 new PointF(osi.Points[osi.Vectors[2][0]].X, osi.Points[osi.Vectors[2][0]].Y),
                 new PointF(osi.Points[osi.Vectors[2][1]].X, osi.Points[osi.Vectors[2][1]].Y));
+
+
+            var startOs = new Point3(-1, -1, -1);
+            var endOs = new Point3(1, 1, 1);
+            startOs = startOs.Transform(GetScaleMatrix(100)).Transform(DimetricXOYMatrix).Transform(CenterMatrix);
+            endOs = endOs.Transform(GetScaleMatrix(100)).Transform(DimetricXOYMatrix).Transform(CenterMatrix);
+            g.DrawLine(
+                xPen,
+                new PointF(startOs.X, startOs.Y),
+                new PointF(endOs.X, endOs.Y));
 
             g.Dispose();
             PictureBox.Image = Bitmap;
