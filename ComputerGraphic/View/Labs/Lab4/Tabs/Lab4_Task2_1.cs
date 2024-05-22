@@ -5,19 +5,13 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
 {
     public partial class Lab4_Task2_1 : UserControl
     {
-        private float xLocation = 0;
-        private float yLocation = 0;
-        private float zLocation = 0;
-        private float xRotation = 20;
-        private float yRotation = 20;
-        private float zRotation = 0;
-        private float xScale = 1;
-        private float yScale = 1;
-        private float zScale = 1;
-
         Bitmap Bitmap { get; set; }
         new int Width => PictureBox.Width;
         new int Height => PictureBox.Height;
+
+        float AngleDegrees { get; set; } = 0f;
+
+        float AngleRadians => AngleDegrees / 180f * MathF.PI;
 
         /// <summary>
         /// Вдоль оси OZ на плоскость XOY.
@@ -99,7 +93,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             }
         }
 
-        Figure Cube { get; set; } = new Figure();
+        Figure Figure { get; set; } = new Figure();
 
         int Interval { get; set; } = 50;
 
@@ -168,21 +162,52 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             return matrix;
         }
 
-        void DrawCube()
+        void DrawFigure()
         {
+            var observer = new Point3(4000, -4000, -10000);
             var pen = new Pen(Color.Black, 5);
-            var cube = Cube.Transform(GetScaleMatrix(50));
+            var transparentPen = new Pen(Color.Black, 3);
+            var figure = Figure.Transform(GetScaleMatrix(50)).Transform(GetRotateYMatrix(AngleDegrees));
 
-            cube = cube.Transform(GetLocationMatrix(0, 0, 0));
-            cube = cube.Transform(DimetricXOYMatrix).Transform(CenterMatrix);
+            figure = figure.Transform(GetLocationMatrix(0, 0, 0));
+            var visibleFigure = figure.Transform(DimetricXOYMatrix).Transform(CenterMatrix);
 
             var g = Graphics.FromImage(Bitmap);
 
-            foreach (var vector in cube.Vectors)
+            for (var i = 0; i < figure.Edges.Count; i++)
             {
-                var start = new PointF(vector.Start.X, vector.Start.Y);
-                var end = new PointF(vector.End.X, vector.End.Y);
-                g.DrawLine(vector.Pen, start, end);
+                if (figure.Edges[i].IsVisibleFrom(figure.Barycenter, observer))
+                {
+                    foreach(var vector in visibleFigure.Edges[i].Vectors)
+                    {
+                        var start = new PointF(vector.Start.X, vector.Start.Y);
+                        var end = new PointF(vector.End.X, vector.End.Y);
+                        g.DrawLine(pen, start, end);
+                    }
+                }
+                else
+                {
+                    foreach (var vector in visibleFigure.Edges[i].Vectors)
+                    {
+                        var separatorCount = 11;
+                        var deltaX = vector.End.X - vector.Start.X;
+                        var deltaY = vector.End.Y - vector.Start.Y;
+
+                        for (var k = 0; k < separatorCount; k += 2)
+                        {
+                            var start = new PointF(
+                                vector.Start.X + deltaX * k / separatorCount,
+                                vector.Start.Y + deltaY * k / separatorCount);
+
+                            var end = new PointF(
+                                vector.Start.X + deltaX * (k + 1) / separatorCount,
+                                vector.Start.Y + deltaY * (k + 1) / separatorCount);
+
+                            g.DrawLine(transparentPen, start, end);
+                        }
+                    }
+                }
+                
             }
 
             g.Dispose();
@@ -223,7 +248,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
         {
             Clear();
             DrawOsi();
-            DrawCube();
+            DrawFigure();
         }
 
         void Clear()
@@ -249,6 +274,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            AngleDegrees = (AngleDegrees + 1) % 180f;
             Draw();
         }
     }

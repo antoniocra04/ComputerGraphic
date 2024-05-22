@@ -2,51 +2,118 @@
 {
     public class Figure
     {
-        public List<Vector3> Vectors;
+        public List<Point3> Points { get; set; } = new List<Point3>();
+        public List<Edge> Edges { get; set; } = new List<Edge>();
+
+        public Point3 Barycenter
+        {
+            get
+            {
+                var barycenter = new Point3();
+
+                if (Points.Count == 0)
+                {
+                    throw new Exception();
+                }
+
+                foreach (var point in Points)
+                {
+                    barycenter.X += point.X;
+                    barycenter.Y += point.Y;
+                    barycenter.Z += point.Z;
+                }
+
+                barycenter.X /= Points.Count;
+                barycenter.Y /= Points.Count;
+                barycenter.Z /= Points.Count;
+
+                return barycenter;
+            }
+        }
 
         public Figure()
         {
-            var cubePen = new Pen(Color.Black, 5);
+            var figurePen = new Pen(Color.Black, 5);
             var xPen = new Pen(Color.Red, 2);
             var yPen = new Pen(Color.Green, 2);
             var zPen = new Pen(Color.Blue, 2);
 
-            Vectors = new List<Vector3>();
-            Vectors.Add(new Vector3(0, 0, 0, 1, 0, 0, xPen));
-            Vectors.Add(new Vector3(0, 0, 0, 0, 1, 0, yPen));
-            Vectors.Add(new Vector3(0, 0, 0, 0, 0, 1, zPen));
+            //Vectors.Add(new Vector3(0, 0, 0, 1, 0, 0, xPen));
+            //Vectors.Add(new Vector3(0, 0, 0, 0, 1, 0, yPen));
+            //Vectors.Add(new Vector3(0, 0, 0, 0, 0, 1, zPen));
 
-            Vectors.Add(new Vector3(1, -1, -1, 1, 1, -1, cubePen));
-            Vectors.Add(new Vector3(-1, -1, -1, -1, 1, -1, cubePen));
-            Vectors.Add(new Vector3(-1, -1, -1, 1, -1, -1, cubePen));
-            Vectors.Add(new Vector3(-1, 1, -1, 1, 1, -1, cubePen));
+            Points.Add(new Point3(0, 0, 1));
+            Points.Add(new Point3(0, 0, -1));
+            Points.Add(new Point3(1, 1, 0));
+            Points.Add(new Point3(1, -1, 0));
+            Points.Add(new Point3(-1, -1, 0));
+            Points.Add(new Point3(-1, 1, 0));
 
-            Vectors.Add(new Vector3(1, -1, 1, 1, 1, 1, cubePen));
-            Vectors.Add(new Vector3(-1, -1, 1, -1, 1, 1, cubePen));
-            Vectors.Add(new Vector3(-1, -1, 1, 1, -1, 1, cubePen));
-            Vectors.Add(new Vector3(-1, 1, 1, 1, 1, 1, cubePen));
+            Edges.Add(new Edge(
+                Points[0],
+                Points[2],
+                Points[3]));
 
-            Vectors.Add(new Vector3(1, 1, -1, 1, 1, 1, cubePen));
-            Vectors.Add(new Vector3(-1, -1, -1, -1, -1, 1, cubePen));
-            Vectors.Add(new Vector3(1, -1, -1, 1, -1, 1, cubePen));
-            Vectors.Add(new Vector3(-1, 1, -1, -1, 1, 1, cubePen));
+            Edges.Add(new Edge(
+                Points[0],
+                Points[3],
+                Points[4]));
+
+            Edges.Add(new Edge(
+                Points[0],
+                Points[4],
+                Points[5]));
+
+            Edges.Add(new Edge(
+                Points[0],
+                Points[5],
+                Points[2]));
+
+
+            Edges.Add(new Edge(
+                Points[1],
+                Points[2],
+                Points[3]));
+
+            Edges.Add(new Edge(
+                Points[1],
+                Points[3],
+                Points[4]));
+
+            Edges.Add(new Edge(
+                Points[1],
+                Points[4],
+                Points[5]));
+
+            Edges.Add(new Edge(
+                Points[1],
+                Points[5],
+                Points[2]));
         }
 
-        public Figure(List<Vector3> vectors)
+        public Figure(List<Point3> points, List<Edge> edges)
         {
-            Vectors = vectors;
+            Points = points;
+            Edges = edges;
         }
 
         public Figure Transform(TransformMatrix3 matrix)
         {
-            var vectors = new List<Vector3>();
+            var edges = new List<Edge>();
+            var points = new List<Point3>();
 
-            foreach (var vector in Vectors)
+            foreach (var edge in Edges)
             {
-                vectors.Add(vector.Transform(matrix));
+                edges.Add(edge.Transform(matrix));
             }
 
-            return new Figure(vectors);
+
+            foreach (var point in Points)
+            {
+                points.Add(point.Transform(matrix));
+            }
+
+            return new Figure(points, edges);
         }
     }
 }
