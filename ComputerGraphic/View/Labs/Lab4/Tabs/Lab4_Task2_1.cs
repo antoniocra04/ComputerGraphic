@@ -16,21 +16,14 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
         /// <summary>
         /// Вдоль оси OZ на плоскость XOY.
         /// </summary>
-        TransformMatrix3 DimetricXOYMatrix
+        TransformMatrix3 PerspectiveXOYMatrix
         {
             get
             {
                 var matrix = new TransformMatrix3();
 
-                var alpha = 22.208f / 180f * MathF.PI;
-                var beta = 20.705f / 180f * MathF.PI;
-
-                matrix.A = MathF.Cos(alpha);
-                matrix.B = MathF.Sin(alpha) * MathF.Sin(beta);
-                matrix.E = MathF.Cos(beta);
-                matrix.G = MathF.Sin(alpha);
-                matrix.H = -MathF.Cos(alpha) * MathF.Sin(beta);
-                matrix.I = 0;
+                matrix.P = 0.01f;
+                matrix.Q = 0.001f;
                 return matrix;
             }
         }
@@ -131,7 +124,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
 
         TransformMatrix3 GetRotateXMatrix(float fi)
         {
-            var rad = fi / 180 * MathF.PI;
+            var rad = (fi - 180) / 180 * MathF.PI;
             var matrix = new TransformMatrix3();
             matrix.E = MathF.Cos(rad);
             matrix.F = MathF.Sin(rad);
@@ -142,7 +135,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
 
         TransformMatrix3 GetRotateYMatrix(float fi)
         {
-            var rad = fi / 180 * MathF.PI;
+            var rad = (fi - 180)/180 * MathF.PI;
             var matrix = new TransformMatrix3();
             matrix.A = MathF.Cos(rad);
             matrix.C = -MathF.Sin(rad);
@@ -153,7 +146,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
 
         TransformMatrix3 GetRotateZMatrix(float fi)
         {
-            var rad = fi / 180 * MathF.PI;
+            var rad = (fi - 180) / 180 * MathF.PI;
             var matrix = new TransformMatrix3();
             matrix.A = MathF.Cos(rad);
             matrix.B = MathF.Sin(rad);
@@ -164,14 +157,14 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
 
         void DrawFigure()
         {
-            var observer = new Point3(4000, -4000, -10000);
+            var observer = new Point3(0, 0, -10000);
             var pen = new Pen(Color.Black, 5);
             var transparentPen = new Pen(Color.Black, 3);
-            var figure = Figure.Transform(GetScaleMatrix(50));
+            var figure = Figure.Transform(GetScaleMatrix(50)).Transform(GetLocationMatrix((float)NumericUpDownX.Value, 0, (float)NumericUpDownZ.Value));
             figure = figure.Transform(GetRotateXMatrix(0));
-            figure = figure.Transform(GetRotateZMatrix(AngleDegrees)).Transform(GetRotateYMatrix(125));
+            figure = figure.Transform(GetRotateZMatrix(0)).Transform(GetRotateYMatrix(AngleDegrees));
             figure = figure.Transform(GetLocationMatrix(0, 0, 0));
-            var visibleFigure = figure.Transform(DimetricXOYMatrix).Transform(CenterMatrix);
+            var visibleFigure = figure.Transform(PerspectiveXOYMatrix).Transform(CenterMatrix);
 
             var g = Graphics.FromImage(Bitmap);
 
@@ -222,7 +215,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             var yPen = new Pen(Color.Green, penSize);
             var zPen = new Pen(Color.Blue, penSize);
 
-            var osi = Osi.Transform(GetScaleMatrix(100)).Transform(DimetricXOYMatrix).Transform(CenterMatrix);
+            var osi = Osi.Transform(GetScaleMatrix(100)).Transform(PerspectiveXOYMatrix).Transform(CenterMatrix);
 
             var g = Graphics.FromImage(Bitmap);
 
@@ -242,10 +235,10 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
                 new PointF(osi.Points[osi.Vectors[2][1]].X, osi.Points[osi.Vectors[2][1]].Y));
 
 
-            var startOs = new Point3(-1, -1, -1);
-            var endOs = new Point3(1, 1, 1);
-            startOs = startOs.Transform(GetScaleMatrix(100)).Transform(DimetricXOYMatrix).Transform(CenterMatrix);
-            endOs = endOs.Transform(GetScaleMatrix(100)).Transform(DimetricXOYMatrix).Transform(CenterMatrix);
+            var startOs = new Point3(0, -1, 0);
+            var endOs = new Point3(0, 1, 0);
+            startOs = startOs.Transform(GetScaleMatrix(100)).Transform(GetLocationMatrix((float)NumericUpDownX.Value, 0, (float)NumericUpDownZ.Value)).Transform(PerspectiveXOYMatrix).Transform(CenterMatrix);
+            endOs = endOs.Transform(GetScaleMatrix(100)).Transform(GetLocationMatrix((float)NumericUpDownX.Value, 0, (float)NumericUpDownZ.Value)).Transform(PerspectiveXOYMatrix).Transform(CenterMatrix);
             g.DrawLine(
                 xPen,
                 new PointF(startOs.X, startOs.Y),
@@ -285,7 +278,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            AngleDegrees = (AngleDegrees + 1) % 180f;
+            AngleDegrees = (AngleDegrees + 1) % 360f;
             Draw();
         }
     }

@@ -42,12 +42,11 @@
             //Vectors.Add(new Vector3(0, 0, 0, 0, 1, 0, yPen));
             //Vectors.Add(new Vector3(0, 0, 0, 0, 0, 1, zPen));
 
-            Points.Add(new Point3(0, 0, 1));
-            Points.Add(new Point3(0, 0, -1));
-            Points.Add(new Point3(1, 1, 0));
-            Points.Add(new Point3(1, -1, 0));
-            Points.Add(new Point3(-1, -1, 0));
-            Points.Add(new Point3(-1, 1, 0));
+            Points.Add(new Point3(0, 1, 0));
+            Points.Add(new Point3(0, -1, 0));
+            Points.Add(new Point3(1, 0, 0));
+            Points.Add(new Point3(-0.7f, 0, 0.7f));
+            Points.Add(new Point3(-0.7f, 0, -0.7f));
 
             Edges.Add(new Edge(
                 Points[0],
@@ -62,11 +61,6 @@
             Edges.Add(new Edge(
                 Points[0],
                 Points[4],
-                Points[5]));
-
-            Edges.Add(new Edge(
-                Points[0],
-                Points[5],
                 Points[2]));
 
 
@@ -83,11 +77,6 @@
             Edges.Add(new Edge(
                 Points[1],
                 Points[4],
-                Points[5]));
-
-            Edges.Add(new Edge(
-                Points[1],
-                Points[5],
                 Points[2]));
         }
 
