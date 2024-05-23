@@ -28,16 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tabControl1 = new TabControl();
-            tabPage2 = new TabPage();
-            lab4_Task2_11 = new Tabs.Lab4_Task2_1();
-            tabPage1 = new TabPage();
             tabPage3 = new TabPage();
-            openglPrimitives1 = new Tabs.OpenGLPrimitives();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
+            tabControl1 = new TabControl();
+            graphic1 = new Tabs.Graphic();
+            tabPage1.SuspendLayout();
             tabControl1.SuspendLayout();
-            tabPage2.SuspendLayout();
-            tabPage3.SuspendLayout();
             SuspendLayout();
+            // 
+            // tabPage3
+            // 
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(792, 422);
+            tabPage3.TabIndex = 3;
+            tabPage3.Text = "OpenGL";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(graphic1);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(792, 422);
+            tabPage1.TabIndex = 2;
+            tabPage1.Text = "Graphic";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(792, 422);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Алгоритм Робертса";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -51,59 +80,12 @@
             tabControl1.Size = new Size(800, 450);
             tabControl1.TabIndex = 0;
             // 
-            // tabPage2
+            // graphic1
             // 
-            tabPage2.Controls.Add(lab4_Task2_11);
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(792, 422);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Алгоритм Робертса";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // lab4_Task2_11
-            // 
-            lab4_Task2_11.Dock = DockStyle.Fill;
-            lab4_Task2_11.Location = new Point(3, 3);
-            lab4_Task2_11.Name = "lab4_Task2_11";
-            lab4_Task2_11.Size = new Size(786, 416);
-            lab4_Task2_11.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(792, 422);
-            tabPage1.TabIndex = 2;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            tabPage3.Controls.Add(openglPrimitives1);
-            tabPage3.Location = new Point(4, 24);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(792, 422);
-            tabPage3.TabIndex = 3;
-            tabPage3.Text = "OpenGL";
-            tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // openglPrimitives1
-            // 
-            openglPrimitives1.AngleX = 117F;
-            openglPrimitives1.AngleY = 117F;
-            openglPrimitives1.AngleZ = 117F;
-            openglPrimitives1.CurrentObject = 1;
-            openglPrimitives1.Dock = DockStyle.Fill;
-            openglPrimitives1.Location = new Point(3, 3);
-            openglPrimitives1.MaterialColor = Color.White;
-            openglPrimitives1.Name = "openglPrimitives1";
-            openglPrimitives1.Size = new Size(786, 416);
-            openglPrimitives1.Speed = 1F;
-            openglPrimitives1.TabIndex = 0;
+            graphic1.Location = new Point(0, 0);
+            graphic1.Name = "graphic1";
+            graphic1.Size = new Size(792, 422);
+            graphic1.TabIndex = 0;
             // 
             // Lab4
             // 
@@ -113,19 +95,18 @@
             Controls.Add(tabControl1);
             Name = "Lab4";
             Text = "Lab4";
+            tabPage1.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
-            tabPage2.ResumeLayout(false);
-            tabPage3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private TabControl tabControl1;
-        private TabPage tabPage2;
         private Tabs.Lab4_Task2_1 lab4_Task2_11;
-        private TabPage tabPage1;
-        private TabPage tabPage3;
         private Tabs.OpenGLPrimitives openglPrimitives1;
+        private TabPage tabPage3;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private TabControl tabControl1;
+        private Tabs.Graphic graphic1;
     }
 }
