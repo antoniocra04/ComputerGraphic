@@ -55,6 +55,8 @@
             button4 = new Button();
             button1 = new Button();
             pictureBox1 = new PictureBox();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -312,10 +314,35 @@
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(632, 245);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(72, 19);
+            radioButton1.TabIndex = 27;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Пунктир";
+            radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(632, 270);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(96, 19);
+            radioButton2.TabIndex = 27;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Чёрный цвет";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
             // Graphic
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(radioButton2);
+            Controls.Add(radioButton1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button17);
@@ -345,6 +372,7 @@
             Size = new Size(768, 461);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -375,5 +403,7 @@
         private Button button4;
         private Button button1;
         private PictureBox pictureBox1;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
     }
 }
