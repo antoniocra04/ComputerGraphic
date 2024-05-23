@@ -30,15 +30,20 @@
         {
             tabPage3 = new TabPage();
             tabPage1 = new TabPage();
+            graphic1 = new Tabs.Graphic();
             tabPage2 = new TabPage();
             tabControl1 = new TabControl();
-            graphic1 = new Tabs.Graphic();
+            lab4_Task2_12 = new Tabs.Lab4_Task2_1();
+            openglPrimitives2 = new Tabs.OpenGLPrimitives();
+            tabPage3.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
             tabControl1.SuspendLayout();
             SuspendLayout();
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(openglPrimitives2);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
@@ -58,8 +63,16 @@
             tabPage1.Text = "Graphic";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // graphic1
+            // 
+            graphic1.Location = new Point(0, 0);
+            graphic1.Name = "graphic1";
+            graphic1.Size = new Size(792, 422);
+            graphic1.TabIndex = 0;
+            // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(lab4_Task2_12);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -80,12 +93,27 @@
             tabControl1.Size = new Size(800, 450);
             tabControl1.TabIndex = 0;
             // 
-            // graphic1
+            // lab4_Task2_12
             // 
-            graphic1.Location = new Point(0, 0);
-            graphic1.Name = "graphic1";
-            graphic1.Size = new Size(792, 422);
-            graphic1.TabIndex = 0;
+            lab4_Task2_12.Dock = DockStyle.Fill;
+            lab4_Task2_12.Location = new Point(3, 3);
+            lab4_Task2_12.Name = "lab4_Task2_12";
+            lab4_Task2_12.Size = new Size(786, 416);
+            lab4_Task2_12.TabIndex = 0;
+            // 
+            // openglPrimitives2
+            // 
+            openglPrimitives2.AngleX = 307F;
+            openglPrimitives2.AngleY = 307F;
+            openglPrimitives2.AngleZ = 307F;
+            openglPrimitives2.CurrentObject = 1;
+            openglPrimitives2.Dock = DockStyle.Fill;
+            openglPrimitives2.Location = new Point(3, 3);
+            openglPrimitives2.MaterialColor = Color.White;
+            openglPrimitives2.Name = "openglPrimitives2";
+            openglPrimitives2.Size = new Size(786, 416);
+            openglPrimitives2.Speed = 1F;
+            openglPrimitives2.TabIndex = 0;
             // 
             // Lab4
             // 
@@ -95,7 +123,9 @@
             Controls.Add(tabControl1);
             Name = "Lab4";
             Text = "Lab4";
+            tabPage3.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -108,5 +138,7 @@
         private TabPage tabPage2;
         private TabControl tabControl1;
         private Tabs.Graphic graphic1;
+        private Tabs.OpenGLPrimitives openglPrimitives2;
+        private Tabs.Lab4_Task2_1 lab4_Task2_12;
     }
 }
