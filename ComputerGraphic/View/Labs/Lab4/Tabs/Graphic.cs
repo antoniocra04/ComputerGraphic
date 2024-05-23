@@ -63,7 +63,7 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             pictureBox1.Image = null;
         }
 
-      
+
         private void Init_cube()
         {
             int k = 0;
@@ -185,6 +185,16 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             double[,] shape4 = Multiply_matr(shape3, matrixPreobr); //перемножение матриц
 
             Pen myPen = new Pen(Color.Blue, 2); // цвет линии и ширина
+
+            if (radioButton1.Checked)
+            {
+                myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            }
+
+            if (radioButton2.Checked)
+            {
+                myPen.Color = Color.Black;
+            }
 
             //создаем новый объект Graphics (поверхность рисования) из pictureBox
             Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
@@ -492,6 +502,11 @@ namespace ComputerGraphic.View.Labs.Lab4.Tabs
             pictureBox1.Refresh();
             Draw_Osi();
             Draw_Cube();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
